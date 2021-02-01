@@ -1,7 +1,7 @@
 # Личный проект «Шесть городов» [![Build status][travis-image]][travis-url]
 
 * Студент: [Oleg Parkhomenko](https://up.htmlacademy.ru/react/6/user/635705).
-* Наставник: `Неизвестно`.
+* Наставник: [Сергей Ufocoder](https://htmlacademy.ru/profile/id573445).
 
 ---
 
