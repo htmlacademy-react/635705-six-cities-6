@@ -55,3 +55,5 @@ const PlaceCard = () => {
     </article>
   );
 };
+
+export default PlaceCard;
