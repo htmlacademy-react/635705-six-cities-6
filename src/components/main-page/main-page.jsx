@@ -1,5 +1,6 @@
 import React from "react";
 import PlaceCard from '../place-card/place-card';
+import PropTypes from 'prop-types';
 
 const MainPage = (props) => {
   const {adCount} = props;
@@ -119,6 +120,10 @@ const MainPage = (props) => {
       </main>
     </div>
   );
+};
+
+MainPage.propTypes = {
+  adCount: PropTypes.number.isRequired,
 };
 
 export default MainPage;
