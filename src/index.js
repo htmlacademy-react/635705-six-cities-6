@@ -4,7 +4,7 @@ import App from "./components/app/app";
 
 const Setting = {
   AD_COUNT: 312,
-  CITIES: ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf']
+  CITIES: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`]
 };
 
 ReactDOM.render(
