@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LocationsList = (props) => {
-  const {cities} = props;
+const LocationsList = ({cities}) => {
 
   return (
     <ul className="locations__list tabs__list">
-      {cities.map((city, i) => (
-        <li className="locations__item" key={city + i}>
+      {cities.map((city, key) => (
+        <li className="locations__item" key={key}>
           <a className={city === `Amsterdam` ? `locations__item-link tabs__item tabs__item--active` : `locations__item-link     tabs__item`} href="#">
             <span>{city}</span>
           </a>

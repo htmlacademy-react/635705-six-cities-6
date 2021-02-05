@@ -2,9 +2,7 @@ import React from "react";
 import MainPage from "../main-page/main-page";
 import PropTypes from 'prop-types';
 
-const App = (props) => {
-  const {adCount, cities} = props;
-
+const App = (adCount, cities) => {
   return (
     <MainPage adCount={adCount} cities={cities} />
   );

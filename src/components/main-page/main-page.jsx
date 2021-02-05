@@ -4,8 +4,7 @@ import PlaceCard from '../place-card/place-card';
 import LocationsList from '../locations-list/locations-list';
 import PropTypes from 'prop-types';
 
-const MainPage = (props) => {
-  const {adCount, cities} = props;
+const MainPage = ({adCount, cities}) => {
 
   return (
     <div className="page page--gray page--main">
@@ -49,7 +48,7 @@ const MainPage = (props) => {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {Array(5).fill().map((item, i) => <PlaceCard key={item + i}/>)}
+                {Array(adCount).fill().slice(0, 5).map((item, key) => <PlaceCard key={key}/>)}
               </div>
             </section>
             <div className="cities__right-section">
