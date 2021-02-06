@@ -1,8 +1,8 @@
 import React from "react";
-import Header from '../header/header';
-import PlaceCard from '../place-card/place-card';
-import LocationsList from '../locations-list/locations-list';
-import PropTypes from 'prop-types';
+import Header from "../Header";
+import PlaceCard from "../PlaceCard";
+import LocationsTabs from "../LocationsTabs";
+import PropTypes from "prop-types";
 
 const MainPage = ({adCount, cities}) => {
 
@@ -13,7 +13,7 @@ const MainPage = ({adCount, cities}) => {
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
           <section className="locations container">
-            <LocationsList cities={cities} />
+            <LocationsTabs cities={cities} />
           </section>
         </div>
         <div className="cities">
@@ -48,7 +48,7 @@ const MainPage = ({adCount, cities}) => {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {Array(adCount).fill().slice(0, 5).map((item, key) => <PlaceCard key={key}/>)}
+                {Array(adCount).fill().slice(0, 5).map((item) => <PlaceCard key={item}/>)}
               </div>
             </section>
             <div className="cities__right-section">
