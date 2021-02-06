@@ -48,7 +48,7 @@ const MainPage = ({adCount, cities}) => {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {Array(adCount).fill().slice(0, 5).map((item, key) => <PlaceCard key={item}/>)}
+                {Array(adCount).fill().slice(0, 5).map((item) => <PlaceCard key={item}/>)}
               </div>
             </section>
             <div className="cities__right-section">
