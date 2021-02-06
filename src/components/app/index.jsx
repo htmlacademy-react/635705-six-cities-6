@@ -1,10 +1,10 @@
 import React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import MainPage from "../main-page";
-import FavoritesPage from "../favorites-page";
-import LoginPage from "../login-page";
-import OfferPage from "../offer-page";
-import NotFoundPage from "../not-found-page";
+import MainPage from "../MainPage";
+import FavoritesPage from "../FavoritesPage";
+import LoginPage from "../LoginPage";
+import OfferPage from "../OfferPage";
+import NotFoundPage from "../NotFoundPage";
 import PropTypes from "prop-types";
 
 const App = ({adCount, cities}) => {
