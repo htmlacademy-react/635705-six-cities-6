@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../header";
 import PlaceCard from "../place-card";
-import LocationsList from "../locations-tabs";
+import LocationsTabs from "../locations-tabs";
 import PropTypes from "prop-types";
 
 const MainPage = ({adCount, cities}) => {
@@ -13,7 +13,7 @@ const MainPage = ({adCount, cities}) => {
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
           <section className="locations container">
-            <LocationsList cities={cities} />
+            <LocationsTabs cities={cities} />
           </section>
         </div>
         <div className="cities">
@@ -48,7 +48,7 @@ const MainPage = ({adCount, cities}) => {
                 </ul>
               </form>
               <div className="cities__places-list places__list tabs__content">
-                {Array(adCount).fill().slice(0, 5).map((item, key) => <PlaceCard key={key}/>)}
+                {Array(adCount).fill().slice(0, 5).map((item, key) => <PlaceCard key={item + key}/>)}
               </div>
             </section>
             <div className="cities__right-section">
