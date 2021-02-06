@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Header = () => {
   return (
@@ -6,7 +6,7 @@ const Header = () => {
       <div className="container">
         <div className="header__wrapper">
           <div className="header__left">
-            <a className="header__logo-link header__logo-link--active">
+            <a className="header__logo-link" href="main.html">
               <img
                 className="header__logo"
                 src="img/logo.svg"
@@ -24,9 +24,7 @@ const Header = () => {
                   href="#"
                 >
                   <div className="header__avatar-wrapper user__avatar-wrapper"></div>
-                  <span className="header__user-name user__name">
-                    Oliver.conner@gmail.com
-                  </span>
+                  <span className="header__login">Sign in</span>
                 </a>
               </li>
             </ul>

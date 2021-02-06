@@ -1,8 +1,8 @@
 import React from "react";
-import Header from '../header/header';
-import PlaceCard from '../place-card/place-card';
-import LocationsList from '../locations-list/locations-list';
-import PropTypes from 'prop-types';
+import Header from "../header";
+import PlaceCard from "../place-card";
+import LocationsList from "../locations-tabs";
+import PropTypes from "prop-types";
 
 const MainPage = ({adCount, cities}) => {
 
