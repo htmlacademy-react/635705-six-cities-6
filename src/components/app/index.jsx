@@ -7,7 +7,7 @@ import OfferPage from "../offer-page";
 import NotFoundPage from "../not-found-page";
 import PropTypes from "prop-types";
 
-const App = (adCount, cities) => {
+const App = ({adCount, cities}) => {
   return (
     <BrowserRouter>
       <Switch>
