@@ -34,8 +34,8 @@ const App = ({adCount, cities, offers, reviewGet}) => {
 App.propTypes = {
   adCount: PropTypes.number.isRequired,
   cities: PropTypes.arrayOf(PropTypes.string),
-  offers: PropTypes.array.isRequired,
-  reviewGet: PropTypes.array.isRequired
+  offers: PropTypes.arrayOf(PropTypes.object),
+  reviewGet: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default App;

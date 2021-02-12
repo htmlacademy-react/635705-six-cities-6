@@ -1,10 +1,10 @@
 import React from "react";
 import Header from "../Header";
-import PlaceCard from "../PlaceCard";
+import PlacesList from "../PlacesList";
 import LocationsTabs from "../LocationsTabs";
 import PropTypes from "prop-types";
 
-const MainPage = ({adCount, cities}) => {
+const MainPage = ({adCount, cities, offers}) => {
 
   return (
     <div className="page page--gray page--main">
@@ -47,9 +47,7 @@ const MainPage = ({adCount, cities}) => {
                   </li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {Array(adCount).fill().slice(0, 5).map((item) => <PlaceCard key={item}/>)}
-              </div>
+              <PlacesList offers={offers} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map" />
@@ -63,7 +61,8 @@ const MainPage = ({adCount, cities}) => {
 
 MainPage.propTypes = {
   adCount: PropTypes.number.isRequired,
-  cities: PropTypes.arrayOf(PropTypes.string)
+  cities: PropTypes.arrayOf(PropTypes.string),
+  offers: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default MainPage;
