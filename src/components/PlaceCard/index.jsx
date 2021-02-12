@@ -3,7 +3,7 @@ import Mark from "../Mark";
 import {getRating, Housing} from "../../const";
 import PropTypes from "prop-types";
 
-const PlaceCard = ({offer}) => {
+const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
   const {
     is_premium: isPremium,
     preview_image: previewImage,
@@ -15,7 +15,7 @@ const PlaceCard = ({offer}) => {
   } = offer;
 
   return (
-    <article className="cities__place-card place-card">
+    <article className="cities__place-card place-card" onMouseEnter={handleMouseEnter} onMouseOut={handleMouseOut}>
       {isPremium && <Mark />}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
@@ -93,7 +93,9 @@ PlaceCard.propTypes = {
     "rating": PropTypes.number,
     "title": PropTypes.string,
     "type": PropTypes.string
-  })
+  }),
+  handleMouseEnter: PropTypes.func,
+  handleMouseOut: PropTypes.func
 };
 
 export default PlaceCard;
