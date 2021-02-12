@@ -19,7 +19,7 @@ export default [
     },
     "id": 1,
     "images": [`img/1.png`, `img/2.png`],
-    "is_favorite": false,
+    "is_favorite": true,
     "is_premium": false,
     "location": {
       "latitude": 52.35514938496378,
@@ -27,10 +27,10 @@ export default [
       "zoom": 8
     },
     "max_adults": 4,
-    "preview_image": `img/1.png`,
+    "preview_image": `img/apartment-01.jpg`,
     "price": 120,
     "rating": 4.8,
-    "title": `Beautiful & luxurious studio at great location`,
+    "title": `Beautiful &amp; luxurious apartment at great location`,
     "type": `apartment`
   },
   {
@@ -54,16 +54,16 @@ export default [
     "id": 2,
     "images": [`img/1.png`, `img/2.png`],
     "is_favorite": false,
-    "is_premium": false,
+    "is_premium": true,
     "location": {
       "latitude": 52.35514938496378,
       "longitude": 4.673877537499948,
       "zoom": 8
     },
     "max_adults": 4,
-    "preview_image": `img/1.png`,
+    "preview_image": `img/room.jpg`,
     "price": 80,
-    "rating": 4.8,
+    "rating": 3,
     "title": `Wood and stone place`,
     "type": `room`
   },
@@ -88,14 +88,14 @@ export default [
     "id": 3,
     "images": [`img/1.png`, `img/2.png`],
     "is_favorite": false,
-    "is_premium": false,
+    "is_premium": true,
     "location": {
       "latitude": 52.35514938496378,
       "longitude": 4.673877537499948,
       "zoom": 8
     },
     "max_adults": 4,
-    "preview_image": `img/1.png`,
+    "preview_image": `img/apartment-02.jpg`,
     "price": 120,
     "rating": 4.8,
     "title": `Beautiful & luxurious studio at great location`,
@@ -121,7 +121,7 @@ export default [
     },
     "id": 4,
     "images": [`img/1.png`, `img/2.png`],
-    "is_favorite": false,
+    "is_favorite": true,
     "is_premium": false,
     "location": {
       "latitude": 52.35514938496378,
@@ -129,9 +129,9 @@ export default [
       "zoom": 8
     },
     "max_adults": 4,
-    "preview_image": `img/1.png`,
+    "preview_image": `img/apartment-03.jpg`,
     "price": 120,
-    "rating": 4.8,
+    "rating": 2,
     "title": `Beautiful & luxurious studio at great location`,
     "type": `hotel`
   }
