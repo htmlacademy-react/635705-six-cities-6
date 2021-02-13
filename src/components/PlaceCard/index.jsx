@@ -1,6 +1,7 @@
 import React from "react";
 import Mark from "../Mark";
 import {getRating, Housing, Page} from "../../const";
+import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
 const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
@@ -61,9 +62,9 @@ const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
           </div>
         </div>
         <h2 className="place-card__name">
-          <a href="#">
+          <Link to={`/offer/:${offer.id}`}>
             {title}
-          </a>
+          </Link>
         </h2>
         <p className="place-card__type">{Housing[type]}</p>
       </div>
