@@ -7,4 +7,9 @@ export const Housing = {
   hotel: `Hotel`
 };
 
+export const Page = {
+  isFavorites: window.location.pathname === `/favorites`,
+  isMain: window.location.pathname === `/`
+};
+
 export const getRating = (num) => (num / MAX_RATING) * 100;

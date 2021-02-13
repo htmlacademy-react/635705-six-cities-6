@@ -75,7 +75,7 @@ export default [
         "longitude": 4.895168,
         "zoom": 10
       },
-      "name": `Amsterdam`
+      "name": `Cologne`
     },
     "description": `A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
     "goods": [`Heating`, `Kitchen`, `Cable TV`, `Washing machine`, `Coffee machine`, `Dishwasher`],
@@ -130,9 +130,9 @@ export default [
     },
     "max_adults": 4,
     "preview_image": `img/apartment-03.jpg`,
-    "price": 120,
+    "price": 180,
     "rating": 2,
-    "title": `Beautiful & luxurious studio at great location`,
+    "title": `White castle`,
     "type": `hotel`
   }
 ];

@@ -1,6 +1,6 @@
 import React from "react";
 import Mark from "../Mark";
-import {getRating, Housing} from "../../const";
+import {getRating, Housing, Page} from "../../const";
 import PropTypes from "prop-types";
 
 const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
@@ -15,20 +15,24 @@ const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
   } = offer;
 
   return (
-    <article className="cities__place-card place-card" onMouseEnter={handleMouseEnter} onMouseOut={handleMouseOut}>
-      {isPremium && <Mark />}
-      <div className="cities__image-wrapper place-card__image-wrapper">
+    <article
+      className={`${Page.isFavorites ? `favorites__card` : `cities__place-card`} place-card`}
+      onMouseEnter={handleMouseEnter}
+      onMouseOut={handleMouseOut}
+    >
+      {Page.isMain && isPremium && <Mark />}
+      <div className={`${Page.isFavorites ? `favorites__image-wrapper` : `cities__image-wrapper`} place-card__image-wrapper`}>
         <a href="#">
           <img
             className="place-card__image"
             src={previewImage}
-            width={260}
-            height={200}
+            width={Page.isFavorites ? 150 : 260}
+            height={Page.isFavorites ? 110 : 200}
             alt={Housing[type]}
           />
         </a>
       </div>
-      <div className="place-card__info">
+      <div className={`${Page.isFavorites && `favorites__card-info `}place-card__info`}>
         <div className="place-card__price-wrapper">
           <div className="place-card__price">
             <b className="place-card__price-value">€{price}</b>

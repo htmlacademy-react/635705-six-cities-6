@@ -62,7 +62,7 @@ const MainPage = ({adCount, cities, offers}) => {
 MainPage.propTypes = {
   adCount: PropTypes.number.isRequired,
   cities: PropTypes.arrayOf(PropTypes.string),
-  offers: PropTypes.arrayOf(PropTypes.object)
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default MainPage;
