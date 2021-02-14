@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../Layouts/Header";
-import Reviews from "../../Reviews";
+import Reviews from "../../Layouts/Reviews";
 import PropertyGallery from "../../Layouts/PropertyGallery";
 import PlacesList from "../../Layouts/PlacesList";
 import {Housing, getRating} from "../../../const";

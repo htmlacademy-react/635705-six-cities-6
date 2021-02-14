@@ -1,10 +1,13 @@
 import React from "react";
-import Mark from "../Layouts/Mark";
-import {getRating, Housing, Page, PROPTYPES} from "../../const";
+import Mark from "../../Layouts/Mark";
+import {getRating, Housing, PROPTYPES} from "../../../const";
+import {usePage} from "../../../hooks/usePage";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
 const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
+  const Page = usePage();
+
   const {
     is_premium: isPremium,
     preview_image: previewImage,

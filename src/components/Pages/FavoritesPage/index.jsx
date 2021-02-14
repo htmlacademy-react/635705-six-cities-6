@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../Layouts/Header";
-import PlacesList from "../../PlacesList";
+import PlacesList from "../../Layouts/PlacesList";
 import Footer from "../../Layouts/Footer";
 import PropTypes from "prop-types";
 

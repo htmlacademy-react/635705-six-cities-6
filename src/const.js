@@ -9,12 +9,6 @@ export const Housing = {
   hotel: `Hotel`,
 };
 
-export const Page = {
-  isFavorites: window.location.pathname === `/favorites`,
-  isMain: window.location.pathname === `/`,
-  isOffer: window.location.pathname === `/offer/:1`
-};
-
 export const getRating = (num) => (num / MAX_RATING) * 100;
 
 export const getMonth = (date) => {

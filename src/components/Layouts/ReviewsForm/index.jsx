@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Star from "../Star";
-import {MAX_RATING} from "../../const";
+import {MAX_RATING} from "../../../const";
 
 const ReviewsForm = () => {
   const [userForm, setUserForm] = useState({

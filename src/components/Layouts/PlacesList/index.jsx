@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import PlaceCard from "../PlaceCard";
-import {Page} from "../../const";
+import {usePage} from "../../../hooks/usePage";
 import PropTypes from "prop-types";
 
 const PlacesList = ({offers}) => {
   const [activeCard, setActiveCard] = useState(null);
+
+  const Page = usePage();
 
   return (
     <div className={`

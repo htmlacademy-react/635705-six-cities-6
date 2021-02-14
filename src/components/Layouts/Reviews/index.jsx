@@ -1,6 +1,6 @@
 import React from "react";
 import ReviewsForm from "../ReviewsForm";
-import {getRating, getMonth, getYear} from "../../const";
+import {getRating, getMonth, getYear} from "../../../const";
 import PropTypes from "prop-types";
 
 const Reviews = ({reviewGet}) => {
