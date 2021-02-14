@@ -21,7 +21,7 @@ const App = ({adCount, cities, offers, reviewGet}) => {
           <FavoritesPage offers={offers} />
         </Route>
         <Route path="/offer/:id?" exact>
-          <OfferPage reviewGet={reviewGet} />
+          <OfferPage offers={offers} reviewGet={reviewGet} />
         </Route>
         <Route>
           <NotFoundPage />

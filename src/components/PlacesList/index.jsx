@@ -7,7 +7,11 @@ const PlacesList = ({offers}) => {
   const [activeCard, setActiveCard] = useState(null);
 
   return (
-    <div className={Page.isFavorites ? `favorites__places` : `cities__places-list places__list tabs__content`}>
+    <div className={`
+      ${Page.isFavorites && `favorites__places`}
+      ${Page.isMain && `cities__places-list tabs__content`}
+      ${Page.isOffer && `near-places__list`} places__list
+    `}>
       {offers.map((offer) => (
         <PlaceCard
           key={offer.id}

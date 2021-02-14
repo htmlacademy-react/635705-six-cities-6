@@ -5,7 +5,7 @@ export default [
     "id": 1,
     "rating": 4,
     "user": {
-      "avatar_url": `img/1.png`,
+      "avatar_url": `img/avatar-max.jpg`,
       "id": 4,
       "is_pro": false,
       "name": `Max`
