@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../Layouts/Header";
 import PlacesList from "../../Layouts/PlacesList";
 import Footer from "../../Layouts/Footer";
+import {getOffersByCity} from "../../../common";
 import PropTypes from "prop-types";
 
 const FavoritesPage = ({offers}) => {
@@ -22,7 +23,7 @@ const FavoritesPage = ({offers}) => {
                   </div>
                 </div>
                 {/* Временное решение */}
-                <PlacesList offers={offers.filter((offer) => offer.city.name === `Amsterdam`)} />
+                <PlacesList offers={getOffersByCity(offers, `Amsterdam`)} />
               </li>
               <li className="favorites__locations-items">
                 <div className="favorites__locations locations locations--current">
@@ -33,7 +34,7 @@ const FavoritesPage = ({offers}) => {
                   </div>
                 </div>
                 {/* Временное решение */}
-                <PlacesList offers={offers.filter((offer) => offer.city.name === `Cologne`)} />
+                <PlacesList offers={getOffersByCity(offers, `Cologne`)} />
               </li>
             </ul>
           </section>
