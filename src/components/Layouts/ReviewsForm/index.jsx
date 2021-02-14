@@ -37,7 +37,7 @@ const ReviewsForm = () => {
           {Array.from(new Array(MAX_RATING)).map((field, index) => (
             <Star
               key={index}
-              index={index}
+              serialNumber={MAX_RATING - index}
               handleRadioChange={handleRadioChange}
             />
           ))}
