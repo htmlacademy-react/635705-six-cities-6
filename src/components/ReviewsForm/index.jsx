@@ -48,6 +48,7 @@ const ReviewsForm = () => {
           name="review"
           placeholder="Tell how was your stay, what you like and what can be improved"
           defaultValue={``}
+          value={userForm.review}
           onChange={handleTextareaChange}
         />
         <div className="reviews__button-wrapper">
