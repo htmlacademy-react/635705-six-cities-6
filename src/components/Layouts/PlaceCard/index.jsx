@@ -1,6 +1,7 @@
 import React from "react";
 import Mark from "../../Layouts/Mark";
-import {getRating, Housing, PROPTYPES} from "../../../const";
+import {Housing, PROPTYPES} from "../../../const";
+import {getRating} from "../../../common";
 import {usePage} from "../../../hooks/usePage";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";

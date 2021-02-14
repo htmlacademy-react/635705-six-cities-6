@@ -3,7 +3,8 @@ import Header from "../../Layouts/Header";
 import Reviews from "../../Layouts/Reviews";
 import PropertyGallery from "../../Layouts/PropertyGallery";
 import PlacesList from "../../Layouts/PlacesList";
-import {Housing, getRating} from "../../../const";
+import {Housing} from "../../../const";
+import {getRating} from "../../../common";
 import PropTypes from "prop-types";
 
 const OfferPage = ({offers, reviewGet}) => {
