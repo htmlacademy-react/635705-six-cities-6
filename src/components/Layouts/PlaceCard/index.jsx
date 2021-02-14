@@ -1,6 +1,6 @@
 import React from "react";
 import Mark from "../../Layouts/Mark";
-import {Housing, PROPTYPES} from "../../../const";
+import {Housing, PROPTYPES, ImageSize} from "../../../const";
 import {getRating} from "../../../common";
 import {usePage} from "../../../hooks/usePage";
 import {Link} from "react-router-dom";
@@ -39,8 +39,8 @@ const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
           <img
             className="place-card__image"
             src={previewImage}
-            width={Page.isFavorites ? 150 : 260}
-            height={Page.isFavorites ? 110 : 200}
+            width={Page.isFavorites ? ImageSize.SMALL.width : ImageSize.LARGE.width}
+            height={Page.isFavorites ? ImageSize.SMALL.width : ImageSize.LARGE.height}
             alt={Housing[type]}
           />
         </a>
