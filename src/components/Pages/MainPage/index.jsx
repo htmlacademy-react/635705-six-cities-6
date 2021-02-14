@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../Header";
-import PlacesList from "../PlacesList";
-import LocationsTabs from "../LocationsTabs";
+import Header from "../../Layouts/Header";
+import PlacesList from "../../PlacesList";
+import LocationsTabs from "../../Layouts/LocationsTabs";
 import PropTypes from "prop-types";
 
 const MainPage = ({adCount, cities, offers}) => {

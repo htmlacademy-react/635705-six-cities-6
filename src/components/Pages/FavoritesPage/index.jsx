@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../Header";
-import PlacesList from "../PlacesList";
-import Footer from "../Footer";
+import Header from "../../Layouts/Header";
+import PlacesList from "../../PlacesList";
+import Footer from "../../Layouts/Footer";
 import PropTypes from "prop-types";
 
 const FavoritesPage = ({offers}) => {

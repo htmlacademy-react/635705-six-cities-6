@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../Header";
-import Reviews from "../Reviews";
-import PropertyGallery from "../PropertyGallery";
-import PlacesList from "../PlacesList";
-import {Housing, getRating} from "../../const";
+import Header from "../../Layouts/Header";
+import Reviews from "../../Reviews";
+import PropertyGallery from "../../Layouts/PropertyGallery";
+import PlacesList from "../../Layouts/PlacesList";
+import {Housing, getRating} from "../../../const";
 import PropTypes from "prop-types";
 
 const OfferPage = ({offers, reviewGet}) => {
