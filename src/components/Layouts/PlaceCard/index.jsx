@@ -1,5 +1,4 @@
 import React from "react";
-import Mark from "../../Layouts/Mark";
 import {Housing, PROPTYPES, ImageSize} from "../../../const";
 import {getRating} from "../../../common";
 import {usePage} from "../../../hooks/usePage";
@@ -19,6 +18,8 @@ const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
     type,
   } = offer;
 
+  const shouldBeMarked = Page.isMain && isPremium;
+
   return (
     <article
       className={`
@@ -29,7 +30,11 @@ const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
       onMouseEnter={handleMouseEnter}
       onMouseOut={handleMouseOut}
     >
-      {Page.isMain && isPremium && <Mark />}
+      {shouldBeMarked && (
+        <div className="place-card__mark">
+          <span>Premium</span>
+        </div>
+      )}
       <div className={`
         ${Page.isFavorites && `favorites__image-wrapper`}
         ${Page.isMain && `cities__image-wrapper`}
