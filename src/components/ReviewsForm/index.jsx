@@ -5,7 +5,7 @@ import {MAX_RATING} from "../../const";
 const ReviewsForm = () => {
   const [userForm, setUserForm] = useState({
     stars: null,
-    review: null,
+    review: ``,
   });
 
   const handleSubmit = (evt) => {
@@ -47,7 +47,6 @@ const ReviewsForm = () => {
           id="review"
           name="review"
           placeholder="Tell how was your stay, what you like and what can be improved"
-          defaultValue={``}
           value={userForm.review}
           onChange={handleTextareaChange}
         />
