@@ -18,6 +18,7 @@ const ReviewsForm = () => {
   };
 
   const handleTextareaChange = (evt) => {
+    evt.preventDefault();
     const {value} = evt.target;
     setUserForm({...userForm, review: value});
   };
