@@ -1,6 +1,6 @@
 import React from "react";
 import ReviewsForm from "../ReviewsForm";
-import {getRating, getMonth, getYear} from "../../../common";
+import {getRating, getMonth, getYear, getDate} from "../../../common";
 import PropTypes from "prop-types";
 
 const Reviews = ({reviewGet}) => {
@@ -43,7 +43,7 @@ const Reviews = ({reviewGet}) => {
                 <p className="reviews__text">
                   {comment}
                 </p>
-                <time className="reviews__time" dateTime="2019-04-24">
+                <time className="reviews__time" dateTime={getDate(date)}>
                   {`${getMonth(date)} ${getYear(date)}`}
                 </time>
               </div>
