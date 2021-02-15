@@ -13,8 +13,8 @@ const ReviewsForm = () => {
   };
 
   const handleRadioChange = (evt) => {
-    const {defaultValue} = evt.target;
-    setUserForm({...userForm, stars: defaultValue});
+    const stars = evt.target.value;
+    setUserForm((state) => ({...state, stars}));
   };
 
   const handleTextareaChange = (evt) => {
