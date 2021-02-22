@@ -30,7 +30,7 @@ const Map = ({offers}) => {
     offers.forEach((point) => {
       const customIcon = leaflet.icon({
         iconUrl: `./img/pin.svg`,
-        iconSize: [27, 39],
+        iconSize: [30, 30],
       });
 
       leaflet
@@ -45,11 +45,11 @@ const Map = ({offers}) => {
         )
         .addTo(mapRef.current)
         .bindPopup(point.title);
-
-      return () => {
-        mapRef.current.remove();
-      };
     });
+
+    return () => {
+      mapRef.current.remove();
+    };
   }, []);
 
   return (
