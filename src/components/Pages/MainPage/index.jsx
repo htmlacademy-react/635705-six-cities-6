@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../../Layouts/Header";
 import PlacesList from "../../Layouts/PlacesList";
 import LocationsTabs from "../../Layouts/LocationsTabs";
-import Map from "../../Layouts/Map";
+import OffersMap from "../../Layouts/OffersMap";
 import PropTypes from "prop-types";
 
 const MainPage = ({adCount, cities, offers}) => {
@@ -51,7 +51,7 @@ const MainPage = ({adCount, cities, offers}) => {
               <PlacesList offers={offers} />
             </section>
             <div className="cities__right-section">
-              <Map offers={offers} />
+              <OffersMap offers={offers} />
             </div>
           </div>
         </div>

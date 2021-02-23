@@ -10,5 +10,17 @@ export default [
       "is_pro": false,
       "name": `Max`
     }
+  },
+  {
+    "comment": `Not A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.`,
+    "date": `2020-05-22T14:13:56.569Z`,
+    "id": 2,
+    "rating": 5,
+    "user": {
+      "avatar_url": `img/avatar-max.jpg`,
+      "id": 5,
+      "is_pro": true,
+      "name": `One More Max`
+    }
   }
 ];
