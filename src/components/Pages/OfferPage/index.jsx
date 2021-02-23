@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "../../Layouts/Header";
-import Reviews from "../../Layouts/Reviews";
+import ReviewsList from "../../Layouts/ReviewsList";
+import ReviewsForm from "../../Layouts/ReviewsForm";
 import PropertyGallery from "../../Layouts/PropertyGallery";
 import PlacesList from "../../Layouts/PlacesList";
 import {Housing} from "../../../const";
@@ -109,7 +110,13 @@ const OfferPage = ({offers, reviewGet}) => {
                   ))}
                 </div>
               </div>
-              <Reviews reviewGet={reviewGet} />
+              <section className="property__reviews reviews">
+                <h2 className="reviews__title">
+                  Reviews · <span className="reviews__amount">{reviewGet.length}</span>
+                </h2>
+                <ReviewsList reviewGet={reviewGet} />
+                <ReviewsForm />
+              </section>
             </div>
           </div>
           <section className="property__map map" />
