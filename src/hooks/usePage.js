@@ -6,6 +6,6 @@ export const usePage = () => {
   return {
     isFavorites: location.pathname === `/favorites`,
     isMain: location.pathname === `/`,
-    isOffer: location.pathname === `/offer/:1`,
+    isOffer: location.pathname === `/offer`,
   };
 };
