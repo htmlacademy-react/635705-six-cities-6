@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import PlaceCard from "../PlaceCard";
 import {usePage} from "../../../hooks/usePage";
+import classNames from "classnames";
 import PropTypes from "prop-types";
-
-const classNames = require(`classnames`);
 
 const PlacesList = ({offers}) => {
   const [activeCard, setActiveCard] = useState(null);

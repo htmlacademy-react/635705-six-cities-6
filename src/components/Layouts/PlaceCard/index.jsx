@@ -3,9 +3,8 @@ import {Housing, PROPTYPES, ImageSize} from "../../../const";
 import {getRating} from "../../../common";
 import {usePage} from "../../../hooks/usePage";
 import {Link} from "react-router-dom";
+import classNames from "classnames";
 import PropTypes from "prop-types";
-
-const classNames = require(`classnames`);
 
 const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
   const Page = usePage();
