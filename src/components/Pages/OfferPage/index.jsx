@@ -8,7 +8,7 @@ import {Housing} from "../../../const";
 import {getRating} from "../../../common";
 import PropTypes from "prop-types";
 
-const OfferPage = ({offers, reviewGet}) => {
+const OfferPage = ({offers, reviews}) => {
   const {
     is_premium: isPremium,
     images,
@@ -112,9 +112,9 @@ const OfferPage = ({offers, reviewGet}) => {
               </div>
               <section className="property__reviews reviews">
                 <h2 className="reviews__title">
-                  Reviews · <span className="reviews__amount">{reviewGet.length}</span>
+                  Reviews · <span className="reviews__amount">{reviews.length}</span>
                 </h2>
-                <ReviewsList reviewGet={reviewGet} />
+                <ReviewsList reviews={reviews} />
                 <ReviewsForm />
               </section>
             </div>
@@ -136,7 +136,7 @@ const OfferPage = ({offers, reviewGet}) => {
 
 OfferPage.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.object),
-  reviewGet: PropTypes.arrayOf(PropTypes.object),
+  reviews: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default OfferPage;

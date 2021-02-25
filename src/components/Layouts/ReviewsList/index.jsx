@@ -2,16 +2,16 @@ import React from "react";
 import Review from "../Review";
 import PropTypes from "prop-types";
 
-const ReviewsList = ({reviewGet}) => {
+const ReviewsList = ({reviews}) => {
   return (
     <ul className="reviews__list">
-      {reviewGet.map((review) => <Review review={review} key={review.id} />)}
+      {reviews.map((review) => <Review review={review} key={review.id} />)}
     </ul>
   );
 };
 
 ReviewsList.propTypes = {
-  reviewGet: PropTypes.arrayOf(PropTypes.object),
+  reviews: PropTypes.arrayOf(PropTypes.object),
 };
 
 export default ReviewsList;

@@ -7,7 +7,7 @@ import OfferPage from "../Pages/OfferPage";
 import NotFoundPage from "../Pages/NotFoundPage";
 import PropTypes from "prop-types";
 
-const App = ({adCount, cities, offers, reviewGet}) => {
+const App = ({adCount, cities, offers, reviews}) => {
   return (
     <BrowserRouter>
       <Switch>
@@ -21,7 +21,7 @@ const App = ({adCount, cities, offers, reviewGet}) => {
           <FavoritesPage offers={offers} />
         </Route>
         <Route path="/offer/:id?" exact>
-          <OfferPage offers={offers} reviewGet={reviewGet} />
+          <OfferPage offers={offers} reviews={reviews} />
         </Route>
         <Route>
           <NotFoundPage />
@@ -35,7 +35,7 @@ App.propTypes = {
   adCount: PropTypes.number.isRequired,
   cities: PropTypes.arrayOf(PropTypes.string),
   offers: PropTypes.arrayOf(PropTypes.object),
-  reviewGet: PropTypes.arrayOf(PropTypes.object)
+  reviews: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default App;

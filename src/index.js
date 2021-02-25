@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import offers from './mocks/offers';
-import reviewGet from './mocks/reviewGet';
+import reviews from './mocks/reviews';
 import App from "./components/App";
 
 const Setting = {
@@ -14,7 +14,7 @@ ReactDOM.render(
       adCount={Setting.AD_COUNT}
       cities={Setting.CITIES}
       offers={offers.slice()}
-      reviewGet={reviewGet.slice()}
+      reviews={reviews.slice()}
     />,
     document.querySelector(`#root`)
 );
