@@ -15,7 +15,7 @@ const PlacesList = ({offers}) => {
       "cities__places-list tabs__content": Page.isMain,
       "near-places__list": Page.isOffer
     })}>
-      {(Page.isOffer ? offers.slice(0, 3) : offers).map((offer) => (
+      {offers.map((offer) => (
         <PlaceCard
           key={offer.id}
           offer={offer}
