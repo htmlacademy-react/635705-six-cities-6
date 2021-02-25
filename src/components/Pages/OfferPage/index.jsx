@@ -126,7 +126,7 @@ const OfferPage = ({offers, reviews}) => {
             <h2 className="near-places__title">
               Other places in the neighbourhood
             </h2>
-            <PlacesList offers={offers.slice(0, 3)} />
+            <PlacesList pageType="offer" offers={offers.slice(0, 3)} />
           </section>
         </div>
       </main>

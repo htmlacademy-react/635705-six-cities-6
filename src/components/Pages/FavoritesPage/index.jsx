@@ -22,8 +22,7 @@ const FavoritesPage = ({offers}) => {
                     </a>
                   </div>
                 </div>
-                {/* Временное решение */}
-                <PlacesList offers={getOffersByCity(offers, `Amsterdam`)} />
+                <PlacesList pageType="favorites" offers={getOffersByCity(offers, `Amsterdam`)} />
               </li>
               <li className="favorites__locations-items">
                 <div className="favorites__locations locations locations--current">
@@ -33,8 +32,7 @@ const FavoritesPage = ({offers}) => {
                     </a>
                   </div>
                 </div>
-                {/* Временное решение */}
-                <PlacesList offers={getOffersByCity(offers, `Cologne`)} />
+                <PlacesList pageType="favorites" offers={getOffersByCity(offers, `Cologne`)} />
               </li>
             </ul>
           </section>

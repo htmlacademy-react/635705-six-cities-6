@@ -48,7 +48,7 @@ const MainPage = ({adCount, cities, offers}) => {
                   </li>
                 </ul>
               </form>
-              <PlacesList offers={offers} />
+              <PlacesList pageType="main" offers={offers} />
             </section>
             <div className="cities__right-section">
               <OffersMap offers={offers} />
