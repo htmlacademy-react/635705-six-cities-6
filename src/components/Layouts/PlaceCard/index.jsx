@@ -23,11 +23,11 @@ const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
 
   return (
     <article
-      className={`${classNames({
+      className={classNames(`place-card`, {
         "favorites__card": Page.isFavorites,
         "cities__place-card": Page.isMain,
         "near-places__card": Page.isOffer
-      })} place-card`}
+      })}
       onMouseEnter={handleMouseEnter}
       onMouseOut={handleMouseOut}
     >
@@ -36,11 +36,11 @@ const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
           <span>Premium</span>
         </div>
       )}
-      <div className={`${classNames({
+      <div className={classNames(`place-card__image-wrapper`, {
         "favorites__image-wrapper": Page.isFavorites,
         "cities__image-wrapper": Page.isMain,
         "near-places__image-wrapper": Page.isOffer
-      })} place-card__image-wrapper`}>
+      })}>
         <a href="#">
           <img
             className="place-card__image"
