@@ -8,7 +8,7 @@ import {Housing} from "../../../const";
 import {getRating} from "../../../common";
 import PropTypes from "prop-types";
 
-const OfferPage = ({offers, reviews}) => {
+const OfferPage = ({offers, reviews, pageType}) => {
   const {
     is_premium: isPremium,
     images,
@@ -126,7 +126,7 @@ const OfferPage = ({offers, reviews}) => {
             <h2 className="near-places__title">
               Other places in the neighbourhood
             </h2>
-            <PlacesList pageType="offer" offers={offers.slice(0, 3)} />
+            <PlacesList pageType={pageType} offers={offers.slice(0, 3)} />
           </section>
         </div>
       </main>
@@ -137,6 +137,7 @@ const OfferPage = ({offers, reviews}) => {
 OfferPage.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.object),
   reviews: PropTypes.arrayOf(PropTypes.object),
+  pageType: PropTypes.string.isRequired
 };
 
 export default OfferPage;
