@@ -3,19 +3,20 @@ import PlaceCard from "../PlaceCard";
 import {usePage} from "../../../hooks/usePage";
 import PropTypes from "prop-types";
 
+const classNames = require(`classnames`);
+
 const PlacesList = ({offers}) => {
   const [activeCard, setActiveCard] = useState(null);
 
   const Page = usePage();
-  const className = `${
-    (Page.isFavorites && `favorites__places`) ||
-    (Page.isMain && `cities__places-list tabs__content`) ||
-    (Page.isOffer && `near-places__list`)
-  } places__list`;
+  const className = `${classNames({
+    "favorites__places": Page.isFavorites,
+    "cities__places-list tabs__content": Page.isMain,
+    "near-places__list": Page.isOffer,
+  })} places__list`;
 
   return (
-    <div className={className}
-    >
+    <div className={className}>
       {(Page.isOffer ? offers.slice(0, 3) : offers).map((offer) => (
         <PlaceCard
           key={offer.id}

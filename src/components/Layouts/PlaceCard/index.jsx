@@ -5,6 +5,8 @@ import {usePage} from "../../../hooks/usePage";
 import {Link} from "react-router-dom";
 import PropTypes from "prop-types";
 
+const classNames = require(`classnames`);
+
 const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
   const Page = usePage();
 
@@ -22,11 +24,11 @@ const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
 
   return (
     <article
-      className={`${
-        (Page.isFavorites && `favorites__card`) ||
-        (Page.isMain && `cities__place-card`) ||
-        (Page.isOffer && `near-places__card`)
-      } place-card`}
+      className={`${classNames({
+        "favorites__card": Page.isFavorites,
+        "cities__place-card": Page.isMain,
+        "near-places__card": Page.isOffer
+      })} place-card`}
       onMouseEnter={handleMouseEnter}
       onMouseOut={handleMouseOut}
     >
@@ -35,11 +37,11 @@ const PlaceCard = ({offer, handleMouseEnter, handleMouseOut}) => {
           <span>Premium</span>
         </div>
       )}
-      <div className={`${
-        (Page.isFavorites && `favorites__image-wrapper`) ||
-        (Page.isMain && `cities__image-wrapper`) ||
-        (Page.isOffer && `near-places__image-wrapper`)
-      } place-card__image-wrapper`}>
+      <div className={`${classNames({
+        "favorites__image-wrapper": Page.isFavorites,
+        "cities__image-wrapper": Page.isMain,
+        "near-places__image-wrapper": Page.isOffer
+      })} place-card__image-wrapper`}>
         <a href="#">
           <img
             className="place-card__image"
