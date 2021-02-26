@@ -5,7 +5,7 @@ import Footer from "../../Layouts/Footer";
 import {getOffersByCity} from "../../../common";
 import PropTypes from "prop-types";
 
-const FavoritesPage = ({offers}) => {
+const FavoritesPage = ({offers, pageType}) => {
   return (
     <div className="page">
       <Header />
@@ -22,8 +22,7 @@ const FavoritesPage = ({offers}) => {
                     </a>
                   </div>
                 </div>
-                {/* Временное решение */}
-                <PlacesList offers={getOffersByCity(offers, `Amsterdam`)} />
+                <PlacesList pageType={pageType} offers={getOffersByCity(offers, `Amsterdam`)} />
               </li>
               <li className="favorites__locations-items">
                 <div className="favorites__locations locations locations--current">
@@ -33,8 +32,7 @@ const FavoritesPage = ({offers}) => {
                     </a>
                   </div>
                 </div>
-                {/* Временное решение */}
-                <PlacesList offers={getOffersByCity(offers, `Cologne`)} />
+                <PlacesList pageType={pageType} offers={getOffersByCity(offers, `Cologne`)} />
               </li>
             </ul>
           </section>
@@ -46,7 +44,8 @@ const FavoritesPage = ({offers}) => {
 };
 
 FavoritesPage.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pageType: PropTypes.string.isRequired
 };
 
 export default FavoritesPage;

@@ -1,12 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import offers from './mocks/offers';
-import reviewGet from './mocks/reviewGet';
+import reviews from './mocks/reviews';
 import App from "./components/App";
 
 const Setting = {
   AD_COUNT: 312,
-  CITIES: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`]
+  CITIES: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
+  PAGE_TYPES: {
+    FAVORITES: `favorites`,
+    MAIN: `main`,
+    OFFER: `offer`
+  }
 };
 
 ReactDOM.render(
@@ -14,7 +19,8 @@ ReactDOM.render(
       adCount={Setting.AD_COUNT}
       cities={Setting.CITIES}
       offers={offers.slice()}
-      reviewGet={reviewGet.slice()}
+      reviews={reviews.slice()}
+      pageTypes={Setting.PAGE_TYPES}
     />,
     document.querySelector(`#root`)
 );

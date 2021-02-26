@@ -2,10 +2,10 @@ import React from "react";
 import Header from "../../Layouts/Header";
 import PlacesList from "../../Layouts/PlacesList";
 import LocationsTabs from "../../Layouts/LocationsTabs";
-import Map from "../../Layouts/Map";
+import OffersMap from "../../Layouts/OffersMap";
 import PropTypes from "prop-types";
 
-const MainPage = ({adCount, cities, offers}) => {
+const MainPage = ({adCount, cities, offers, pageType}) => {
 
   return (
     <div className="page page--gray page--main">
@@ -48,10 +48,10 @@ const MainPage = ({adCount, cities, offers}) => {
                   </li>
                 </ul>
               </form>
-              <PlacesList offers={offers} />
+              <PlacesList pageType={pageType} offers={offers} />
             </section>
             <div className="cities__right-section">
-              <Map offers={offers} />
+              <OffersMap offers={offers} />
             </div>
           </div>
         </div>
@@ -63,7 +63,8 @@ const MainPage = ({adCount, cities, offers}) => {
 MainPage.propTypes = {
   adCount: PropTypes.number.isRequired,
   cities: PropTypes.arrayOf(PropTypes.string),
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
+  pageType: PropTypes.string.isRequired
 };
 
 export default MainPage;

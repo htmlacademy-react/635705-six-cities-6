@@ -1,13 +1,14 @@
 import React from "react";
 import Header from "../../Layouts/Header";
-import Reviews from "../../Layouts/Reviews";
+import ReviewsList from "../../Layouts/ReviewsList";
+import ReviewsForm from "../../Layouts/ReviewsForm";
 import PropertyGallery from "../../Layouts/PropertyGallery";
 import PlacesList from "../../Layouts/PlacesList";
 import {Housing} from "../../../const";
 import {getRating} from "../../../common";
 import PropTypes from "prop-types";
 
-const OfferPage = ({offers, reviewGet}) => {
+const OfferPage = ({offers, reviews, pageType}) => {
   const {
     is_premium: isPremium,
     images,
@@ -109,7 +110,13 @@ const OfferPage = ({offers, reviewGet}) => {
                   ))}
                 </div>
               </div>
-              <Reviews reviewGet={reviewGet} />
+              <section className="property__reviews reviews">
+                <h2 className="reviews__title">
+                  Reviews · <span className="reviews__amount">{reviews.length}</span>
+                </h2>
+                <ReviewsList reviews={reviews} />
+                <ReviewsForm />
+              </section>
             </div>
           </div>
           <section className="property__map map" />
@@ -119,7 +126,7 @@ const OfferPage = ({offers, reviewGet}) => {
             <h2 className="near-places__title">
               Other places in the neighbourhood
             </h2>
-            <PlacesList offers={offers} />
+            <PlacesList pageType={pageType} offers={offers.slice(0, 3)} />
           </section>
         </div>
       </main>
@@ -129,7 +136,8 @@ const OfferPage = ({offers, reviewGet}) => {
 
 OfferPage.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.object),
-  reviewGet: PropTypes.arrayOf(PropTypes.object),
+  reviews: PropTypes.arrayOf(PropTypes.object),
+  pageType: PropTypes.string.isRequired
 };
 
 export default OfferPage;
