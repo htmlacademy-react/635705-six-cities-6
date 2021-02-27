@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import {MAX_RATING} from "./const";
 
 export const getOffersByCity = (offers, cityName) =>
@@ -16,8 +17,5 @@ export const getYear = (date) => {
 };
 
 export const getDate = (date) => {
-  const d = new Date(date);
-  return `
-    ${d.getFullYear()}-${(`0` + (d.getMonth() + 1)).slice(-2)}-${(`0` + d.getDate()).slice(-2)}
-  `;
+  return dayjs(date).format(`YYYY-MM-DD`);
 };
