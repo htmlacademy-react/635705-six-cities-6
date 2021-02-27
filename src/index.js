@@ -8,11 +8,6 @@ import reviews from './mocks/reviews';
 import App from "./components/App";
 import {reducer} from './store/reducer';
 
-const Setting = {
-  AD_COUNT: 312,
-  CITIES: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`]
-};
-
 const store = createStore(
     reducer,
     composeWithDevTools()
@@ -21,8 +16,6 @@ const store = createStore(
 ReactDOM.render(
     <Provider store={store}>
       <App
-        adCount={Setting.AD_COUNT}
-        cities={Setting.CITIES}
         offers={offers.slice()}
         reviews={reviews.slice()}
       />
