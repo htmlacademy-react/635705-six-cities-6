@@ -3,9 +3,8 @@ import Header from "../../Layouts/Header";
 import PlacesList from "../../Layouts/PlacesList";
 import Footer from "../../Layouts/Footer";
 import {getOffersByCity} from "../../../common";
-import PropTypes from "prop-types";
 
-const FavoritesPage = ({offers, pageType}) => {
+const FavoritesPage = () => {
   return (
     <div className="page">
       <Header />
@@ -22,7 +21,7 @@ const FavoritesPage = ({offers, pageType}) => {
                     </a>
                   </div>
                 </div>
-                <PlacesList pageType={pageType} offers={getOffersByCity(offers, `Amsterdam`)} />
+                <PlacesList pageType="favorites" offers={getOffersByCity(`Amsterdam`)} />
               </li>
               <li className="favorites__locations-items">
                 <div className="favorites__locations locations locations--current">
@@ -32,7 +31,7 @@ const FavoritesPage = ({offers, pageType}) => {
                     </a>
                   </div>
                 </div>
-                <PlacesList pageType={pageType} offers={getOffersByCity(offers, `Cologne`)} />
+                <PlacesList pageType="favorites" offers={getOffersByCity(`Cologne`)} />
               </li>
             </ul>
           </section>
@@ -41,11 +40,6 @@ const FavoritesPage = ({offers, pageType}) => {
       <Footer />
     </div>
   );
-};
-
-FavoritesPage.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
-  pageType: PropTypes.string.isRequired
 };
 
 export default FavoritesPage;

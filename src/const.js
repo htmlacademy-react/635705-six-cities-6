@@ -1,5 +1,3 @@
-import PropTypes from "prop-types";
-
 export const MAX_RATING = 5;
 
 export const ImageSize = {
@@ -20,31 +18,53 @@ export const Housing = {
   hotel: `Hotel`,
 };
 
-export const PROPTYPES = {
-  OFFER: PropTypes.shape({
-    "bedrooms": PropTypes.number,
-    "city": PropTypes.shape({
-      "location": PropTypes.objectOf(PropTypes.number),
-      "name": PropTypes.string
-    }),
-    "description": PropTypes.arrayOf(PropTypes.string),
-    "goods": PropTypes.arrayOf(PropTypes.string),
-    "host": PropTypes.shape({
-      "avatar_url": PropTypes.string,
-      "id": PropTypes.number.isRequired,
-      "is_pro": PropTypes.bool,
-      "name": PropTypes.string
-    }),
-    "id": PropTypes.number.isRequired,
-    "images": PropTypes.arrayOf(PropTypes.string),
-    "is_favorite": PropTypes.bool,
-    "is_premium": PropTypes.bool,
-    "location": PropTypes.objectOf(PropTypes.number),
-    "max_adults": PropTypes.number,
-    "preview_image": PropTypes.string,
-    "price": PropTypes.number,
-    "rating": PropTypes.number,
-    "title": PropTypes.string,
-    "type": PropTypes.string
-  }),
-};
+export const LOCATIONS = [
+  {
+    name: `Paris`,
+    point: {
+      latitude: 48.86268,
+      longitude: 2.33779,
+      zoom: 10,
+    }
+  },
+  {
+    name: `Cologne`,
+    point: {
+      latitude: 50.94724,
+      longitude: 6.95976,
+      zoom: 10,
+    }
+  },
+  {
+    name: `Brussels`,
+    point: {
+      latitude: 50.84889,
+      longitude: 4.35136,
+      zoom: 10,
+    }
+  },
+  {
+    name: `Amsterdam`,
+    point: {
+      latitude: 52.370216,
+      longitude: 4.895168,
+      zoom: 10,
+    }
+  },
+  {
+    name: `Hamburg`,
+    point: {
+      latitude: 53.558490,
+      longitude: 9.787741,
+      zoom: 10,
+    }
+  },
+  {
+    name: `Dusseldorf`,
+    point: {
+      latitude: 51.238371,
+      longitude: 6.674269,
+      zoom: 10,
+    }
+  }
+];

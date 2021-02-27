@@ -5,7 +5,7 @@ import LocationsTabs from "../../Layouts/LocationsTabs";
 import OffersMap from "../../Layouts/OffersMap";
 import PropTypes from "prop-types";
 
-const MainPage = ({adCount, cities, offers, pageType}) => {
+const MainPage = ({adCount, cities, offers}) => {
 
   return (
     <div className="page page--gray page--main">
@@ -48,7 +48,7 @@ const MainPage = ({adCount, cities, offers, pageType}) => {
                   </li>
                 </ul>
               </form>
-              <PlacesList pageType={pageType} offers={offers} />
+              <PlacesList pageType="main" offers={offers} />
             </section>
             <div className="cities__right-section">
               <OffersMap offers={offers} />
@@ -63,8 +63,7 @@ const MainPage = ({adCount, cities, offers, pageType}) => {
 MainPage.propTypes = {
   adCount: PropTypes.number.isRequired,
   cities: PropTypes.arrayOf(PropTypes.string),
-  offers: PropTypes.arrayOf(PropTypes.object).isRequired,
-  pageType: PropTypes.string.isRequired
+  offers: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default MainPage;

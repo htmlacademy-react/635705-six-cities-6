@@ -1,7 +1,8 @@
 import dayjs from "dayjs";
+import offers from './mocks/offers';
 import {MAX_RATING} from "./const";
 
-export const getOffersByCity = (offers, cityName) =>
+export const getOffersByCity = (cityName) =>
   offers.filter((offer) => offer.city.name === cityName);
 
 export const getRating = (num) => (num / MAX_RATING) * 100;

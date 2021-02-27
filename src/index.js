@@ -6,12 +6,7 @@ import App from "./components/App";
 
 const Setting = {
   AD_COUNT: 312,
-  CITIES: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
-  PAGE_TYPES: {
-    FAVORITES: `favorites`,
-    MAIN: `main`,
-    OFFER: `offer`
-  }
+  CITIES: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`]
 };
 
 ReactDOM.render(
@@ -20,7 +15,6 @@ ReactDOM.render(
       cities={Setting.CITIES}
       offers={offers.slice()}
       reviews={reviews.slice()}
-      pageTypes={Setting.PAGE_TYPES}
     />,
     document.querySelector(`#root`)
 );
