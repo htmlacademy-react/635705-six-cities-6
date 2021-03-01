@@ -73,14 +73,3 @@ export const mapTypes = {
   MAIN: `MAIN`,
   PROPERTY: `PROPERTY`,
 };
-
-export const mapTypesParams = {
-  MAIN: {
-    mixClass: `cities__map`,
-    height: 736,
-  },
-  PROPERTY: {
-    mixClass: `property__map`,
-    height: 579,
-  },
-};
