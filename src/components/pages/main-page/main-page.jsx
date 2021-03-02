@@ -7,12 +7,8 @@ import Header from "src/components/layout/header/header";
 import LocationsTabs from "src/components/locations-tabs/locations-tabs";
 import Cities from "src/components/cities/cities";
 import CitiesEmpty from "src/components/cities/empty";
-import {LOCATIONS} from "src/const";
 
-
-const MainPage = ({location, offers, onLocationClick}) => {
-  const cityParams = location.point;
-  const cityOffers = [offers.find((offer) => offer.city.name === location.name)];
+const MainPage = ({location, locationCoord, offers, onLocationClick}) => {
 
   return (
     <div className="page page--gray page--main">
@@ -26,17 +22,16 @@ const MainPage = ({location, offers, onLocationClick}) => {
         <div className="tabs">
           <section className="locations container">
             <LocationsTabs
-              locations={LOCATIONS}
-              currentLocationName={location.name}
+              currentLocationName={location}
               onLocationClick={onLocationClick}
             />
           </section>
         </div>
         {offers.length ? (
           <Cities
-            offers={cityOffers}
+            offers={offers}
             location={location}
-            cityParams={cityParams} />
+            cityParams={locationCoord} />
         ) : (
           <CitiesEmpty />
         )}
@@ -47,12 +42,14 @@ const MainPage = ({location, offers, onLocationClick}) => {
 
 MainPage.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.object),
-  location: PropTypes.object,
+  location: PropTypes.string,
+  locationCoord: PropTypes.object,
   onLocationClick: PropTypes.func
 };
 
 const mapStateToProps = (state) => ({
   location: state.location,
+  locationCoord: state.locationCoord,
   offers: state.offers,
 });
 

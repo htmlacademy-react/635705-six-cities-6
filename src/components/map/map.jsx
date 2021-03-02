@@ -4,7 +4,6 @@ import leaflet from "leaflet";
 
 import "leaflet/dist/leaflet.css";
 
-
 export const mapTypesParams = {
   MAIN: {
     mixClass: `cities__map`,

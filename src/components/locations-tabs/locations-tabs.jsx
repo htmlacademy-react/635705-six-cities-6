@@ -1,20 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import {LOCATIONS} from "src/const";
 
-const LocationsTabs = ({locations, currentLocationName, onLocationClick}) => {
+const LocationsTabs = ({currentLocationName, onLocationClick}) => {
   return (
     <ul className="locations__list tabs__list">
-      {locations.map((location) => (
-        <li key={location.name} className="locations__item">
+      {LOCATIONS.map((location) => (
+        <li key={location} className="locations__item">
           <a
             className={classNames(`locations__item-link tabs__item`, {
-              "tabs__item--active": location.name === currentLocationName,
+              "tabs__item--active": location === currentLocationName,
             })}
             onClick={() => onLocationClick(location)}
             href="#"
           >
-            <span>{location.name}</span>
+            <span>{location}</span>
           </a>
         </li>
       ))}
@@ -23,9 +24,8 @@ const LocationsTabs = ({locations, currentLocationName, onLocationClick}) => {
 };
 
 LocationsTabs.propTypes = {
-  currentLocationName: PropTypes.string.isRequired,
+  currentLocationName: PropTypes.string,
   onLocationClick: PropTypes.func.isRequired,
-  locations: PropTypes.array.isRequired,
 };
 
 export default LocationsTabs;

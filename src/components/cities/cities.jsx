@@ -23,7 +23,7 @@ const Cities = ({location, offers, cityParams}) => {
 };
 
 Cities.propTypes = {
-  location: PropTypes.object.isRequired,
+  location: PropTypes.string.isRequired,
   offers: PropTypes.arrayOf(PropTypes.object),
   cityParams: PropTypes.object.isRequired,
 };
