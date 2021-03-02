@@ -1,13 +1,11 @@
 import React from "react";
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
 import Header from "src/components/layout/header/header";
 import Footer from "src/components/layout/footer/footer";
 import PlacesList from "src/components/places/places";
 
-import {getOffersByCity} from "src/common";
-
-const FavoritesPage = () => {
-
-
+const FavoritesPage = ({offers}) => {
   return (
     <div className="page">
       <Header />
@@ -24,7 +22,12 @@ const FavoritesPage = () => {
                     </a>
                   </div>
                 </div>
-                <PlacesList pageType="favorites" offers={getOffersByCity(`Amsterdam`)} />
+                <PlacesList
+                  pageType="favorites"
+                  offers={offers.filter(
+                      (offer) => offer.city.name === `Amsterdam`
+                  )}
+                />
               </li>
               <li className="favorites__locations-items">
                 <div className="favorites__locations locations locations--current">
@@ -34,7 +37,12 @@ const FavoritesPage = () => {
                     </a>
                   </div>
                 </div>
-                <PlacesList pageType="favorites" offers={getOffersByCity(`Cologne`)} />
+                <PlacesList
+                  pageType="favorites"
+                  offers={offers.filter(
+                      (offer) => offer.city.name === `Cologne`
+                  )}
+                />
               </li>
             </ul>
           </section>
@@ -45,4 +53,13 @@ const FavoritesPage = () => {
   );
 };
 
-export default FavoritesPage;
+FavoritesPage.propTypes = {
+  offers: PropTypes.arrayOf(PropTypes.object),
+};
+
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+});
+
+export {FavoritesPage};
+export default connect(mapStateToProps)(FavoritesPage);

@@ -4,12 +4,12 @@ import {mapTypes} from "src/const";
 import OffersMap from "src/components/map/map";
 import CitiesPlaces from "./places";
 
-const Cities = ({city, offers, cityParams}) => {
+const Cities = ({location, offers, cityParams}) => {
 
   return (
     <div className="cities">
       <div className="cities__places-container container">
-        <CitiesPlaces city={city} offers={offers} />
+        <CitiesPlaces location={location} offers={offers} />
         <div className="cities__right-section">
           <OffersMap
             place={cityParams}
@@ -23,8 +23,9 @@ const Cities = ({city, offers, cityParams}) => {
 };
 
 Cities.propTypes = {
-  city: PropTypes.string,
+  location: PropTypes.object.isRequired,
   offers: PropTypes.arrayOf(PropTypes.object),
+  cityParams: PropTypes.object.isRequired,
 };
 
 export default Cities;

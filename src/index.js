@@ -11,7 +11,8 @@ import reviews from './mocks/reviews';
 import {LOCATIONS} from "src/const";
 
 const initialState = {
-  city: LOCATIONS[0].name,
+  location: LOCATIONS[0],
+  locations: LOCATIONS,
   offers,
   reviews,
 };
