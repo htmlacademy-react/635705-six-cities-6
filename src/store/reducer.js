@@ -2,10 +2,10 @@ import {ActionType} from "./action";
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case ActionType.SET_LOCATION:
+    case ActionType.SET_CITY:
       return {
         ...state,
-        location: action.payload,
+        city: action.payload,
       };
     default:
       return state;

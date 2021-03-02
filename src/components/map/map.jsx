@@ -4,7 +4,7 @@ import leaflet from "leaflet";
 
 import "leaflet/dist/leaflet.css";
 
-export const mapTypesParams = {
+export const typesParams = {
   MAIN: {
     mixClass: `cities__map`,
     height: 736,
@@ -15,16 +15,16 @@ export const mapTypesParams = {
   },
 };
 
-const OffersMap = ({place, offers, mapType}) => {
+const Map = ({location, offers, type}) => {
   const mapRef = useRef();
 
   useEffect(() => {
     mapRef.current = leaflet.map(`map`, {
       center: {
-        lat: place.latitude,
-        lng: place.longitude,
+        lat: location.latitude,
+        lng: location.longitude,
       },
-      zoom: place.zoom,
+      zoom: location.zoom,
     });
 
     leaflet
@@ -59,27 +59,27 @@ const OffersMap = ({place, offers, mapType}) => {
     return () => {
       mapRef.current.remove();
     };
-  }, [place, offers]);
+  }, [location, offers]);
 
   return (
-    <section className={`${mapTypesParams[mapType].mixClass || ``} map`}>
+    <section className={`${typesParams[type].mixClass || ``} map`}>
       <div
         id="map"
-        style={{height: `${mapTypesParams[mapType].height}px`}}
+        style={{height: `${typesParams[type].height}px`}}
         ref={mapRef}
       ></div>
     </section>
   );
 };
 
-OffersMap.propTypes = {
-  place: PropTypes.shape({
+Map.propTypes = {
+  location: PropTypes.shape({
     latitude: PropTypes.number.isRequired,
     longitude: PropTypes.number.isRequired,
     zoom: PropTypes.number.isRequired,
   }).isRequired,
   offers: PropTypes.arrayOf(PropTypes.object),
-  mapType: PropTypes.oneOf([`MAIN`, `PROPERTY`]).isRequired,
+  type: PropTypes.oneOf([`MAIN`, `PROPERTY`]).isRequired,
 };
 
-export default OffersMap;
+export default Map;

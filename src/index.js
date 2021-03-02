@@ -8,14 +8,10 @@ import App from "./components/app/app";
 import {reducer} from './store/reducer';
 import offers from './mocks/offers';
 import reviews from './mocks/reviews';
+import {CITIES} from './const';
 
 const initialState = {
-  location: `Paris`,
-  locationCoord: {
-    latitude: 48.86268,
-    longitude: 2.33779,
-    zoom: 10,
-  },
+  city: CITIES[0],
   offers,
   reviews,
 };

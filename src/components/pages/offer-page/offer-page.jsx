@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import {useParams} from "react-router-dom";
+import {connect} from "react-redux";
 import Header from "src/components/layout/header/header";
 import ReviewsList from "src/components/reviews/reviews";
 import ReviewsForm from "src/components/reviews/form";
@@ -10,6 +11,10 @@ import {Housing} from "src/const";
 import {getRating} from "src/common";
 
 const OfferPage = ({offers, reviews}) => {
+  const {id} = useParams();
+  const offer = offers.find((item) => `:${item.id}` === id);
+  const firstOffers = offers.slice(0, 3); // @TODO: find offer by city and extract contants
+
   const {
     is_premium: isPremium,
     images,
@@ -22,7 +27,7 @@ const OfferPage = ({offers, reviews}) => {
     goods,
     host: {name, avatar_url: avatarUrl},
     description,
-  } = offers[0];
+  } = offer;
 
   return (
     <div className="page">
@@ -131,7 +136,7 @@ const OfferPage = ({offers, reviews}) => {
             <h2 className="near-places__title">
               Other places in the neighbourhood
             </h2>
-            <PlacesList pageType="offer" offers={offers.slice(0, 3)} />
+            <PlacesList pageType="offer" offers={firstOffers} />
           </section>
         </div>
       </main>
@@ -144,4 +149,10 @@ OfferPage.propTypes = {
   reviews: PropTypes.arrayOf(PropTypes.object),
 };
 
-export default OfferPage;
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+  reviews: state.reviews,
+});
+
+
+export default connect(mapStateToProps)(OfferPage);

@@ -4,14 +4,13 @@ import classNames from 'classnames';
 import {connect} from "react-redux";
 import {ActionCreator} from "src/store/action";
 import Header from "src/components/layout/header/header";
-import LocationsTabs from "src/components/locations-tabs/locations-tabs";
-import Cities from "src/components/cities/cities";
+import CitiesTabs from "src/components/cities/tabs";
+import CitiesList from "src/components/cities/list";
 import CitiesEmpty from "src/components/cities/empty";
 
-const MainPage = ({location, locationCoord, offers, onLocationClick}) => {
-
+const MainPage = ({city, offers, onCityClick}) => {
   return (
-    <div className="page page--gray page--main">
+    <div className="page page--gray page--maein">
       <Header />
       <main
         className={classNames(`page__main page__main--index`, {
@@ -21,17 +20,16 @@ const MainPage = ({location, locationCoord, offers, onLocationClick}) => {
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
           <section className="locations container">
-            <LocationsTabs
-              currentLocationName={location}
-              onLocationClick={onLocationClick}
-            />
+            <CitiesTabs
+              currentCity={city}
+              onCityClick={onCityClick} />
           </section>
         </div>
         {offers.length ? (
-          <Cities
+          <CitiesList
+            currentCity={city}
             offers={offers}
-            location={location}
-            cityParams={locationCoord} />
+          />
         ) : (
           <CitiesEmpty />
         )}
@@ -42,23 +40,20 @@ const MainPage = ({location, locationCoord, offers, onLocationClick}) => {
 
 MainPage.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.object),
-  location: PropTypes.string,
-  locationCoord: PropTypes.object,
-  onLocationClick: PropTypes.func
+  city: PropTypes.object,
+  onCityClick: PropTypes.func
 };
 
 const mapStateToProps = (state) => ({
-  location: state.location,
-  locationCoord: state.locationCoord,
+  city: state.city,
+  reviews: state.reviews,
   offers: state.offers,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onLocationClick(location) {
-    dispatch(ActionCreator.setLocation(location));
+  onCityClick(city) {
+    dispatch(ActionCreator.setCity(city));
   },
 });
 
-
-export {MainPage};
 export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

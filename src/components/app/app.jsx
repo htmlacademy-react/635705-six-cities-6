@@ -8,12 +8,12 @@ import OfferPage from "../pages/offer-page/offer-page";
 import NotFoundPage from "../pages/not-found-page/not-found-page";
 
 
-const App = ({offers, reviews}) => {
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>
         <Route path="/" exact>
-          <MainPage offers={offers} />
+          <MainPage />
         </Route>
         <Route path="/login" exact>
           <LoginPage />
@@ -21,8 +21,8 @@ const App = ({offers, reviews}) => {
         <Route path="/favorites" exact>
           <FavoritesPage />
         </Route>
-        <Route path="/offer/:id?" exact>
-          <OfferPage offers={offers} reviews={reviews} />
+        <Route path="/offer/:id" exact>
+          <OfferPage />
         </Route>
         <Route>
           <NotFoundPage />
