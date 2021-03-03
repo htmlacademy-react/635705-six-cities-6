@@ -8,9 +8,10 @@ import ReviewsForm from "src/components/reviews/form";
 import OfferPropertyGallery from "src/components/offer/offer-gallery";
 import PlacesList from "src/components/places/places";
 import {Housing} from "src/const";
-import {MAX_RATING, OFFERS_RENTAL_LIMIT} from "src/const";
+import {MAX_RATING} from "src/const";
 
 const OfferPage = ({offers, reviews}) => {
+  const OFFERS_RENTAL_LIMIT = 3;
   const {id} = useParams();
   const offer = offers.find((item) => `:${item.id}` === id);
   const firstOffers = offers.filter((location) => location.city.name === offer.city.name).slice(0, OFFERS_RENTAL_LIMIT);

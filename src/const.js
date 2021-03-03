@@ -1,5 +1,4 @@
 export const MAX_RATING = 5;
-export const OFFERS_RENTAL_LIMIT = 3;
 
 export const ImageSize = {
   LARGE: {
