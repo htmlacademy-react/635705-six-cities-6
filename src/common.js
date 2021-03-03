@@ -1,7 +1,4 @@
 import dayjs from "dayjs";
-import {MAX_RATING} from "./const";
-
-export const getRating = (num) => (num / MAX_RATING) * 100;
 
 export const getMonth = (date) => {
   return new Date(date).toLocaleString(`ru`, {

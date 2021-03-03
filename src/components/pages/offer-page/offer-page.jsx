@@ -8,12 +8,12 @@ import ReviewsForm from "src/components/reviews/form";
 import OfferPropertyGallery from "src/components/offer/offer-gallery";
 import PlacesList from "src/components/places/places";
 import {Housing} from "src/const";
-import {getRating} from "src/common";
+import {MAX_RATING} from "src/const";
 
 const OfferPage = ({offers, reviews}) => {
   const {id} = useParams();
   const offer = offers.find((item) => `:${item.id}` === id);
-  const firstOffers = offers.slice(0, 3); // @TODO: find offer by city and extract contants
+  const firstOffers = offers.filter((location) => location.city.name === offer.city.name).slice(0, 3);
 
   const {
     is_premium: isPremium,
@@ -63,7 +63,7 @@ const OfferPage = ({offers, reviews}) => {
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{width: `${getRating(rating)}%`}} />
+                  <span style={{width: `${(rating / MAX_RATING) * 100}%`}} />
                   <span className="visually-hidden">Rating</span>
                 </div>
                 <span className="property__rating-value rating__value">

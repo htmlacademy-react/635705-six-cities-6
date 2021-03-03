@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import {Link} from "react-router-dom";
 import {Housing, ImageSize} from "src/const";
-import {getRating} from "src/common";
+import {MAX_RATING} from "src/const";
 
 const PlaceCard = ({pageType, offer, handleMouseEnter, handleMouseOut}) => {
 
@@ -69,7 +69,7 @@ const PlaceCard = ({pageType, offer, handleMouseEnter, handleMouseOut}) => {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            <span style={{width: `${getRating(rating)}%`}} />
+            <span style={{width: `${(rating / MAX_RATING) * 100}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>
