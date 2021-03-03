@@ -1,7 +1,6 @@
 import dayjs from "dayjs";
 import {MAX_RATING} from "./const";
 
-// @TODO:
 export const getRating = (num) => (num / MAX_RATING) * 100;
 
 export const getMonth = (date) => {
