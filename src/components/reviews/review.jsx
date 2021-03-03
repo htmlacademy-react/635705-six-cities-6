@@ -1,6 +1,7 @@
 import React from "react";
-import {getRating, getMonth, getYear, getDate} from "../../../common";
 import PropTypes from "prop-types";
+import {getMonth, getYear, getDate} from "src/common";
+import {MAX_RATING} from "src/const";
 
 const Review = ({review}) => {
   const {
@@ -27,7 +28,7 @@ const Review = ({review}) => {
       <div className="reviews__info">
         <div className="reviews__rating rating">
           <div className="reviews__stars rating__stars">
-            <span style={{width: `${getRating(rating)}%`}} />
+            <span style={{width: `${(rating / MAX_RATING) * 100}%`}} />
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

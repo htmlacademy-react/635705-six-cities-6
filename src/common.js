@@ -1,9 +1,4 @@
-import {MAX_RATING} from "./const";
-
-export const getOffersByCity = (offers, cityName) =>
-  offers.filter((offer) => offer.city.name === cityName);
-
-export const getRating = (num) => (num / MAX_RATING) * 100;
+import dayjs from "dayjs";
 
 export const getMonth = (date) => {
   return new Date(date).toLocaleString(`ru`, {
@@ -16,8 +11,5 @@ export const getYear = (date) => {
 };
 
 export const getDate = (date) => {
-  const d = new Date(date);
-  return `
-    ${d.getFullYear()}-${(`0` + (d.getMonth() + 1)).slice(-2)}-${(`0` + d.getDate()).slice(-2)}
-  `;
+  return dayjs(date).format(`YYYY-MM-DD`);
 };

@@ -1,14 +1,21 @@
 import React from "react";
-import Header from "../../Layouts/Header";
-import ReviewsList from "../../Layouts/ReviewsList";
-import ReviewsForm from "../../Layouts/ReviewsForm";
-import PropertyGallery from "../../Layouts/PropertyGallery";
-import PlacesList from "../../Layouts/PlacesList";
-import {Housing} from "../../../const";
-import {getRating} from "../../../common";
 import PropTypes from "prop-types";
+import {useParams} from "react-router-dom";
+import {connect} from "react-redux";
+import Header from "src/components/layout/header/header";
+import ReviewsList from "src/components/reviews/reviews";
+import ReviewsForm from "src/components/reviews/form";
+import OfferPropertyGallery from "src/components/offer/offer-gallery";
+import PlacesList from "src/components/places/places";
+import {Housing} from "src/const";
+import {MAX_RATING} from "src/const";
 
-const OfferPage = ({offers, reviews, pageType}) => {
+const OfferPage = ({offers, reviews}) => {
+  const OFFERS_RENTAL_LIMIT = 3;
+  const {id} = useParams();
+  const offer = offers.find((item) => `:${item.id}` === id);
+  const firstOffers = offers.filter((location) => location.city.name === offer.city.name).slice(0, OFFERS_RENTAL_LIMIT);
+
   const {
     is_premium: isPremium,
     images,
@@ -21,7 +28,7 @@ const OfferPage = ({offers, reviews, pageType}) => {
     goods,
     host: {name, avatar_url: avatarUrl},
     description,
-  } = offers[0];
+  } = offer;
 
   return (
     <div className="page">
@@ -29,8 +36,9 @@ const OfferPage = ({offers, reviews, pageType}) => {
       <main className="page__main page__main--property">
         <section className="property">
           <div className="property__gallery-container container">
-            <PropertyGallery images={images} />
+            <OfferPropertyGallery images={images} />
           </div>
+
           <div className="property__container container">
             <div className="property__wrapper">
               {isPremium && (
@@ -56,7 +64,7 @@ const OfferPage = ({offers, reviews, pageType}) => {
               </div>
               <div className="property__rating rating">
                 <div className="property__stars rating__stars">
-                  <span style={{width: `${getRating(rating)}%`}} />
+                  <span style={{width: `${(rating / MAX_RATING) * 100}%`}} />
                   <span className="visually-hidden">Rating</span>
                 </div>
                 <span className="property__rating-value rating__value">
@@ -110,15 +118,18 @@ const OfferPage = ({offers, reviews, pageType}) => {
                   ))}
                 </div>
               </div>
+
               <section className="property__reviews reviews">
                 <h2 className="reviews__title">
-                  Reviews · <span className="reviews__amount">{reviews.length}</span>
+                  Reviews ·{` `}
+                  <span className="reviews__amount">{reviews.length}</span>
                 </h2>
                 <ReviewsList reviews={reviews} />
                 <ReviewsForm />
               </section>
             </div>
           </div>
+
           <section className="property__map map" />
         </section>
         <div className="container">
@@ -126,7 +137,7 @@ const OfferPage = ({offers, reviews, pageType}) => {
             <h2 className="near-places__title">
               Other places in the neighbourhood
             </h2>
-            <PlacesList pageType={pageType} offers={offers.slice(0, 3)} />
+            <PlacesList pageType="offer" offers={firstOffers} />
           </section>
         </div>
       </main>
@@ -137,7 +148,12 @@ const OfferPage = ({offers, reviews, pageType}) => {
 OfferPage.propTypes = {
   offers: PropTypes.arrayOf(PropTypes.object),
   reviews: PropTypes.arrayOf(PropTypes.object),
-  pageType: PropTypes.string.isRequired
 };
 
-export default OfferPage;
+const mapStateToProps = (state) => ({
+  offers: state.offers,
+  reviews: state.reviews,
+});
+
+
+export default connect(mapStateToProps)(OfferPage);

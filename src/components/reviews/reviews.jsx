@@ -1,5 +1,5 @@
 import React from "react";
-import Review from "../Review";
+import Review from "./review";
 import PropTypes from "prop-types";
 
 const ReviewsList = ({reviews}) => {

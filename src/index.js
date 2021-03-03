@@ -1,26 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import {composeWithDevTools} from 'redux-devtools-extension';
+
+import App from "./components/app/app";
+import {reducer} from './store/reducer';
 import offers from './mocks/offers';
 import reviews from './mocks/reviews';
-import App from "./components/App";
+import {CITIES} from './const';
 
-const Setting = {
-  AD_COUNT: 312,
-  CITIES: [`Paris`, `Cologne`, `Brussels`, `Amsterdam`, `Hamburg`, `Dusseldorf`],
-  PAGE_TYPES: {
-    FAVORITES: `favorites`,
-    MAIN: `main`,
-    OFFER: `offer`
-  }
+const initialState = {
+  city: CITIES[0],
+  offers,
+  reviews,
 };
 
+const store = createStore(
+    reducer,
+    initialState,
+    composeWithDevTools()
+);
+
 ReactDOM.render(
-    <App
-      adCount={Setting.AD_COUNT}
-      cities={Setting.CITIES}
-      offers={offers.slice()}
-      reviews={reviews.slice()}
-      pageTypes={Setting.PAGE_TYPES}
-    />,
+    <Provider store={store}>
+      <App />
+    </Provider>,
     document.querySelector(`#root`)
 );

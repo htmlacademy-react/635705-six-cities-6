@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import PlaceCard from "../PlaceCard";
-import classNames from "classnames";
 import PropTypes from "prop-types";
+import classNames from "classnames";
+import PlaceCard from "./card";
 
 const PlacesList = ({pageType, offers}) => {
   const [activeCard, setActiveCard] = useState(null);
@@ -9,7 +9,8 @@ const PlacesList = ({pageType, offers}) => {
   return (
     <div className={classNames(`places__list`, {
       "favorites__places": pageType === `favorites`,
-      "cities__places-list tabs__content": pageType === `main`,
+      "cities__places-list": pageType === `main`,
+      "tabs__content": pageType === `main`,
       "near-places__list": pageType === `offer`
     })}>
       {offers.map((offer) => (
