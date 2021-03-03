@@ -10,7 +10,7 @@ import CitiesEmpty from "src/components/cities/empty";
 
 const MainPage = ({city, offers, onCityClick}) => {
   return (
-    <div className="page page--gray page--maein">
+    <div className="page page--gray page--main">
       <Header />
       <main
         className={classNames(`page__main page__main--index`, {
