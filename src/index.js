@@ -8,12 +8,15 @@ import App from "./components/app/app";
 import {reducer} from './store/reducer';
 import offers from './mocks/offers';
 import reviews from './mocks/reviews';
-import {CITIES} from './const';
+import {CITIES, DEFAULT_SORT} from './const';
+import {getSorting} from './common';
 
 const initialState = {
   city: CITIES[0],
   offers,
   reviews,
+  currentOffers: getSorting(offers, CITIES[0]),
+  option: DEFAULT_SORT
 };
 
 const store = createStore(

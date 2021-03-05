@@ -1,4 +1,5 @@
 import {ActionType} from "./action";
+import {getSorting} from "src/common";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -6,6 +7,16 @@ const reducer = (state, action) => {
       return {
         ...state,
         city: action.payload,
+      };
+    case ActionType.SET_OPTION:
+      return {
+        ...state,
+        option: action.payload,
+        currentOffers: getSorting(
+            state.offers,
+            state.city,
+            action.payload
+        ),
       };
     default:
       return state;
