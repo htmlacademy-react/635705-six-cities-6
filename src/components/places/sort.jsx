@@ -4,10 +4,9 @@ import classNames from "classnames";
 import {connect} from "react-redux";
 import {ActionCreator} from "src/store/action";
 
-import {SORT_LIST} from "src/const";
-
 const PlaceSort = ({option, onSetOption}) => {
   const [isDropDownOpen, setisDropDownOpen] = useState(false);
+  const SORT_LIST = [DEFAULT_SORT, `Price: low to high`, `Price: high to low`, `Top rated first`];
 
   const handleClick = (evt, sortType) => {
     evt.preventDefault();

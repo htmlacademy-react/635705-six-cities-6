@@ -1,6 +1,5 @@
 export const MAX_RATING = 5;
 export const DEFAULT_SORT = `Popular`;
-export const SORT_LIST = [DEFAULT_SORT, `Price: low to high`, `Price: high to low`, `Top rated first`];
 
 export const ImageSize = {
   LARGE: {
