@@ -16,7 +16,7 @@ const initialState = {
   offers,
   reviews,
   currentOffers: getSorting(offers, CITIES[0]),
-  option: DEFAULT_SORT,
+  sortOption: DEFAULT_SORT,
   activeOfferId: null
 };
 

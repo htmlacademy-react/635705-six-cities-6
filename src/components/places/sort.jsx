@@ -3,15 +3,16 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import {connect} from "react-redux";
 import {ActionCreator} from "src/store/action";
+import {DEFAULT_SORT} from "src/const";
 
-const PlaceSort = ({option, onSetOption}) => {
+const PlaceSort = ({sortOption, onsetSortOption}) => {
   const [isDropDownOpen, setisDropDownOpen] = useState(false);
   const SORT_LIST = [DEFAULT_SORT, `Price: low to high`, `Price: high to low`, `Top rated first`];
 
   const handleClick = (evt, sortType) => {
     evt.preventDefault();
-    if (sortType !== option) {
-      onSetOption(sortType);
+    if (sortType !== sortOption) {
+      onsetSortOption(sortType);
     }
   };
 
@@ -23,7 +24,7 @@ const PlaceSort = ({option, onSetOption}) => {
         className="places__sorting-type"
         tabIndex={0}
       >
-        {option}
+        {sortOption}
         <svg className="places__sorting-arrow" width={7} height={4}>
           <use xlinkHref="#icon-arrow-select" />
         </svg>
@@ -38,7 +39,7 @@ const PlaceSort = ({option, onSetOption}) => {
           <li
             onClick={(evt) => handleClick(evt, item)}
             className={classNames(`places__option`, {
-              "places__option--active": item === option,
+              "places__option--active": item === sortOption,
             })}
             key={item}
             tabIndex={0}
@@ -52,17 +53,17 @@ const PlaceSort = ({option, onSetOption}) => {
 };
 
 PlaceSort.propTypes = {
-  onSetOption: PropTypes.func.isRequired,
-  option: PropTypes.string.isRequired
+  onsetSortOption: PropTypes.func.isRequired,
+  sortOption: PropTypes.string.isRequired
 };
 
-const mapStateToProps = ({option}) => ({
-  option
+const mapStateToProps = ({sortOption}) => ({
+  sortOption
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onSetOption(option) {
-    dispatch(ActionCreator.setOption(option));
+  onsetSortOption(sortOption) {
+    dispatch(ActionCreator.setSortOption(sortOption));
   }
 });
 

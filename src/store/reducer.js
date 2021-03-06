@@ -9,12 +9,12 @@ const reducer = (state, action) => {
         ...state,
         city: action.payload,
         currentOffers: getSorting(state.offers, action.payload),
-        option: DEFAULT_SORT
+        sortOption: DEFAULT_SORT
       };
-    case ActionType.SET_OPTION:
+    case ActionType.SET_SORT_OPTION:
       return {
         ...state,
-        option: action.payload,
+        sortOption: action.payload,
         currentOffers: getSorting(state.offers, state.city, action.payload),
       };
     case ActionType.HOVER_OFFER:

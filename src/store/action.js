@@ -1,6 +1,6 @@
 export const ActionType = {
   SET_CITY: `city/setCity`,
-  SET_OPTION: `option/setOption`,
+  SET_SORT_OPTION: `sortOption/setSortOption`,
   HOVER_OFFER: `offer/hoverOffer`
 };
 
@@ -9,9 +9,9 @@ export const ActionCreator = {
     type: ActionType.SET_CITY,
     payload: city
   }),
-  setOption: (option) => ({
-    type: ActionType.SET_OPTION,
-    payload: option
+  setSortOption: (sortOption) => ({
+    type: ActionType.SET_SORT_OPTION,
+    payload: sortOption
   }),
   hoverOffer: (id) => ({
     type: ActionType.HOVER_OFFER,
