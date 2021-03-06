@@ -5,14 +5,32 @@ import {connect} from "react-redux";
 import {ActionCreator} from "src/store/action";
 import {DEFAULT_SORT} from "src/const";
 
-const PlaceSort = ({sortOption, onsetSortOption}) => {
+const PlaceSort = ({sortOption, onSetSortOption}) => {
   const [isDropDownOpen, setisDropDownOpen] = useState(false);
-  const SORT_LIST = [DEFAULT_SORT, `Price: low to high`, `Price: high to low`, `Top rated first`];
 
-  const handleClick = (evt, sortType) => {
+  const SORT_LIST = [
+    {
+      id: 1,
+      title: DEFAULT_SORT,
+    },
+    {
+      id: 2,
+      title: `Price: low to high`,
+    },
+    {
+      id: 3,
+      title: `Price: high to low`,
+    },
+    {
+      id: 4,
+      title: `Top rated first`,
+    },
+  ];
+
+  const handleClick = (evt, option) => {
     evt.preventDefault();
-    if (sortType !== sortOption) {
-      onsetSortOption(sortType);
+    if (option !== sortOption) {
+      onSetSortOption(option);
     }
   };
 
@@ -35,16 +53,16 @@ const PlaceSort = ({sortOption, onsetSortOption}) => {
           "places__options--opened": isDropDownOpen,
         })}
       >
-        {SORT_LIST.map((item) => (
+        {SORT_LIST.map(({id, title}) => (
           <li
-            onClick={(evt) => handleClick(evt, item)}
+            onClick={(evt) => handleClick(evt, title)}
             className={classNames(`places__option`, {
-              "places__option--active": item === sortOption,
+              "places__option--active": title === sortOption,
             })}
-            key={item}
+            key={id}
             tabIndex={0}
           >
-            {item}
+            {title}
           </li>
         ))}
       </ul>
@@ -53,18 +71,18 @@ const PlaceSort = ({sortOption, onsetSortOption}) => {
 };
 
 PlaceSort.propTypes = {
-  onsetSortOption: PropTypes.func.isRequired,
-  sortOption: PropTypes.string.isRequired
+  onSetSortOption: PropTypes.func.isRequired,
+  sortOption: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = ({sortOption}) => ({
-  sortOption
+  sortOption,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  onsetSortOption(sortOption) {
+  onSetSortOption(sortOption) {
     dispatch(ActionCreator.setSortOption(sortOption));
-  }
+  },
 });
 
 export {PlaceSort};
