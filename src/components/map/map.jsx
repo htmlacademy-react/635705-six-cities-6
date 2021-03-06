@@ -1,5 +1,6 @@
 import React, {useEffect, useRef} from "react";
 import {PropTypes} from "prop-types";
+import {connect} from "react-redux";
 import leaflet from "leaflet";
 
 import "leaflet/dist/leaflet.css";
@@ -15,7 +16,7 @@ export const typesParams = {
   },
 };
 
-const Map = ({location, offers, type}) => {
+const Map = ({location, offers, type, activeCardId}) => {
   const mapRef = useRef();
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const Map = ({location, offers, type}) => {
 
     offers.forEach((point) => {
       const customIcon = leaflet.icon({
-        iconUrl: `./img/pin.svg`,
+        iconUrl: `./img/pin${point.id === activeCardId ? `-active` : ``}.svg`,
         iconSize: [30, 30],
       });
 
@@ -59,7 +60,7 @@ const Map = ({location, offers, type}) => {
     return () => {
       mapRef.current.remove();
     };
-  }, [location, offers]);
+  }, [location, offers, activeCardId]);
 
   return (
     <section className={`${typesParams[type].mixClass || ``} map`}>
@@ -80,6 +81,12 @@ Map.propTypes = {
   }).isRequired,
   offers: PropTypes.arrayOf(PropTypes.object),
   type: PropTypes.oneOf([`MAIN`, `PROPERTY`]).isRequired,
+  activeCardId: PropTypes.string,
 };
 
-export default Map;
+const mapStateToProps = ({activeCardId}) => ({
+  activeCardId
+});
+
+export {Map};
+export default connect(mapStateToProps, ``)(Map);
