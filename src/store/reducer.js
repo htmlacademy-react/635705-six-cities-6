@@ -20,7 +20,7 @@ const reducer = (state, action) => {
     case ActionType.HOVER_OFFER:
       return {
         ...state,
-        activeCardId: action.payload,
+        activeOfferId: action.payload,
       };
     default:
       return state;

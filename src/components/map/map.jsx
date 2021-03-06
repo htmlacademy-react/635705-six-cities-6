@@ -16,7 +16,7 @@ export const typesParams = {
   },
 };
 
-const Map = ({location, offers, type, activeCardId}) => {
+const Map = ({location, offers, type, activeOfferId}) => {
   const mapRef = useRef();
 
   useEffect(() => {
@@ -39,7 +39,7 @@ const Map = ({location, offers, type, activeCardId}) => {
 
     offers.forEach((point) => {
       const customIcon = leaflet.icon({
-        iconUrl: `./img/pin${point.id === activeCardId ? `-active` : ``}.svg`,
+        iconUrl: `./img/pin${point.id === activeOfferId ? `-active` : ``}.svg`,
         iconSize: [30, 30],
       });
 
@@ -60,7 +60,7 @@ const Map = ({location, offers, type, activeCardId}) => {
     return () => {
       mapRef.current.remove();
     };
-  }, [location, offers, activeCardId]);
+  }, [location, offers, activeOfferId]);
 
   return (
     <section className={`${typesParams[type].mixClass || ``} map`}>
@@ -81,11 +81,11 @@ Map.propTypes = {
   }).isRequired,
   offers: PropTypes.arrayOf(PropTypes.object),
   type: PropTypes.oneOf([`MAIN`, `PROPERTY`]).isRequired,
-  activeCardId: PropTypes.string,
+  activeOfferId: PropTypes.string,
 };
 
-const mapStateToProps = ({activeCardId}) => ({
-  activeCardId
+const mapStateToProps = ({activeOfferId}) => ({
+  activeOfferId
 });
 
 export {Map};

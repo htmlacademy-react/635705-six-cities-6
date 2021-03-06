@@ -5,11 +5,11 @@ import {connect} from 'react-redux';
 import {ActionCreator} from "../../store/action";
 import PlaceCard from "./card";
 
-const PlacesList = ({pageType, offers, onHoverOffer, activeCardId}) => {
+const PlacesList = ({pageType, offers, onHoverOffer, activeOfferId}) => {
 
   const changeOffer = (evt, id) => {
     evt.preventDefault();
-    if (id !== activeCardId) {
+    if (id !== activeOfferId) {
       onHoverOffer(id);
     }
   };
@@ -45,10 +45,10 @@ PlacesList.propTypes = {
   pageType: PropTypes.string,
   offers: PropTypes.arrayOf(PropTypes.object),
   onHoverOffer: PropTypes.func.isRequired,
-  activeCardId: PropTypes.string
+  activeOfferId: PropTypes.string
 };
 
-const mapStateToProps = ({activeCardId}) => ({activeCardId});
+const mapStateToProps = ({activeOfferId}) => ({activeOfferId});
 
 const mapDispatchToProps = (dispatch) => ({
   onHoverOffer(id) {

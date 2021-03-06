@@ -17,7 +17,7 @@ const initialState = {
   reviews,
   currentOffers: getSorting(offers, CITIES[0]),
   option: DEFAULT_SORT,
-  activeCardId: null
+  activeOfferId: null
 };
 
 const store = createStore(
