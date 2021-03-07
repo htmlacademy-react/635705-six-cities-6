@@ -8,7 +8,7 @@ import CitiesTabs from "src/components/cities/tabs";
 import CitiesList from "src/components/cities/list";
 import CitiesEmpty from "src/components/cities/empty";
 
-const MainPage = ({city, offers, onCityClick, sortOption, onHoverOffer, activeOfferId, onSetSortOption}) => {
+const MainPage = ({city, onCityClick, offers, ...props}) => {
   return (
     <div className="page page--gray page--main">
       <Header />
@@ -20,20 +20,11 @@ const MainPage = ({city, offers, onCityClick, sortOption, onHoverOffer, activeOf
         <h1 className="visually-hidden">Cities</h1>
         <div className="tabs">
           <section className="locations container">
-            <CitiesTabs
-              currentCity={city}
-              onCityClick={onCityClick} />
+            <CitiesTabs selectedCity={city} onCityClick={onCityClick} />
           </section>
         </div>
         {offers.length ? (
-          <CitiesList
-            currentCity={city}
-            offers={offers}
-            sortOption={sortOption}
-            onHoverOffer={onHoverOffer}
-            activeOfferId={activeOfferId}
-            onSetSortOption={onSetSortOption}
-          />
+          <CitiesList selectedCity={city} offers={offers} {...props} />
         ) : (
           <CitiesEmpty />
         )}

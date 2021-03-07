@@ -15,7 +15,7 @@ const PlaceSort = ({sortOption, onSetSortOption}) => {
 
   return (
     <form className="places__sorting" action="#" method="get">
-      <span className="places__sorting-caption">Sort by</span>
+      <span className="places__sorting-caption">Sort by </span>
       <span
         onMouseEnter={() => setisDropDownOpen(!isDropDownOpen)}
         className="places__sorting-type"
