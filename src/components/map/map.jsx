@@ -5,7 +5,7 @@ import leaflet from "leaflet";
 
 import "leaflet/dist/leaflet.css";
 
-export const typesParams = {
+const typesParams = {
   MAIN: {
     mixClass: `cities__map`,
     height: 736,
