@@ -14,12 +14,9 @@ const CitiesList = ({
   activeOfferId,
   onSetSortOption,
 }) => {
-  const cityOffers = offers.filter(
-      (offer) => offer.city.name === currentCity.name
-  );
   const filteredOffers = useMemo(
-      () => getSorting(cityOffers, currentCity.name, sortOption),
-      [cityOffers]
+      () => getSorting(offers, currentCity.name, sortOption),
+      [currentCity.name]
   );
 
   return (
@@ -27,7 +24,7 @@ const CitiesList = ({
       <div className="cities__places-container container">
         <section className="cities__places places">
           <h2 className="visually-hidden">Places</h2>
-          <b className="places__found">{`${cityOffers.length} places to stay in ${currentCity.name}`}</b>
+          <b className="places__found">{`${filteredOffers.length} places to stay in ${currentCity.name}`}</b>
           <PlaceSort
             onSetSortOption={onSetSortOption}
             sortOption={sortOption}
