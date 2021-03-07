@@ -30,7 +30,7 @@ const PlacesList = ({pageType, offers, onHoverOffer, activeOfferId}) => {
           offer={offer}
           handleMouseEnter={(evt) => {
             setActiveCard({...activeCard, ...offer});
-            changeOffer(evt, evt.currentTarget.id);
+            changeOffer(evt, offer.id);
           }}
           handleMouseOut={() => {
             setActiveCard(null);
@@ -45,7 +45,7 @@ PlacesList.propTypes = {
   pageType: PropTypes.string,
   offers: PropTypes.arrayOf(PropTypes.object),
   onHoverOffer: PropTypes.func.isRequired,
-  activeOfferId: PropTypes.string
+  activeOfferId: PropTypes.number
 };
 
 const mapStateToProps = ({activeOfferId}) => ({activeOfferId});

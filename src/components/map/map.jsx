@@ -81,7 +81,7 @@ Map.propTypes = {
   }).isRequired,
   offers: PropTypes.arrayOf(PropTypes.object),
   type: PropTypes.oneOf([`MAIN`, `PROPERTY`]).isRequired,
-  activeOfferId: PropTypes.string,
+  activeOfferId: PropTypes.number,
 };
 
 const mapStateToProps = ({activeOfferId}) => ({
