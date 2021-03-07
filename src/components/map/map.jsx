@@ -36,6 +36,12 @@ const Map = ({location, offers, type, activeOfferId}) => {
       )
       .addTo(mapRef.current);
 
+    return () => {
+      mapRef.current.remove();
+    };
+  }, [location]);
+
+  useEffect(() => {
     offers.forEach((point) => {
       const customIcon = leaflet.icon({
         iconUrl: `./img/pin${point.id === activeOfferId ? `-active` : ``}.svg`,
@@ -57,9 +63,9 @@ const Map = ({location, offers, type, activeOfferId}) => {
     });
 
     return () => {
-      mapRef.current.remove();
+      mapRef.current.removeLayer(leaflet);
     };
-  }, [location, offers, activeOfferId]);
+  }, [offers, activeOfferId]);
 
   return (
     <section className={`${typesParams[type].mixClass || ``} map`}>
