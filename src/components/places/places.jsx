@@ -1,8 +1,6 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import {connect} from 'react-redux';
-import {ActionCreator} from "../../store/action";
 import PlaceCard from "./card";
 
 const PlacesList = ({pageType, offers, onHoverOffer, activeOfferId}) => {
@@ -48,14 +46,5 @@ PlacesList.propTypes = {
   activeOfferId: PropTypes.number
 };
 
-const mapStateToProps = ({activeOfferId}) => ({activeOfferId});
-
-const mapDispatchToProps = (dispatch) => ({
-  onHoverOffer(id) {
-    dispatch(ActionCreator.hoverOffer(id));
-  }
-});
-
-export {PlacesList};
-export default connect(mapStateToProps, mapDispatchToProps)(PlacesList);
+export default PlacesList;
 

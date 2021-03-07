@@ -1,5 +1,23 @@
 export const MAX_RATING = 5;
-export const DEFAULT_SORT = `Popular`;
+
+export const SORT_LIST = [
+  {
+    id: `default`,
+    title: `Popular`,
+  },
+  {
+    id: `price-from-low`,
+    title: `Price: low to high`,
+  },
+  {
+    id: `price-from-high`,
+    title: `Price: high to low`,
+  },
+  {
+    id: `price-top-rated`,
+    title: `Top rated first`,
+  },
+];
 
 export const ImageSize = {
   LARGE: {

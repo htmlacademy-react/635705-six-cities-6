@@ -1,36 +1,15 @@
 import React, {useState} from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import {connect} from "react-redux";
-import {ActionCreator} from "src/store/action";
-import {DEFAULT_SORT} from "src/const";
-
-const SORT_LIST = [
-  {
-    id: 1,
-    title: DEFAULT_SORT,
-  },
-  {
-    id: 2,
-    title: `Price: low to high`,
-  },
-  {
-    id: 3,
-    title: `Price: high to low`,
-  },
-  {
-    id: 4,
-    title: `Top rated first`,
-  },
-];
+import {SORT_LIST} from "src/const";
 
 const PlaceSort = ({sortOption, onSetSortOption}) => {
   const [isDropDownOpen, setisDropDownOpen] = useState(false);
 
-  const handleClick = (evt, option) => {
+  const handleClick = (evt, selectedSortOption) => {
     evt.preventDefault();
-    if (option !== sortOption) {
-      onSetSortOption(option);
+    if (selectedSortOption.id !== sortOption.id) {
+      onSetSortOption(selectedSortOption);
     }
   };
 
@@ -42,7 +21,7 @@ const PlaceSort = ({sortOption, onSetSortOption}) => {
         className="places__sorting-type"
         tabIndex={0}
       >
-        {sortOption}
+        {sortOption.title}
         <svg className="places__sorting-arrow" width={7} height={4}>
           <use xlinkHref="#icon-arrow-select" />
         </svg>
@@ -53,16 +32,16 @@ const PlaceSort = ({sortOption, onSetSortOption}) => {
           "places__options--opened": isDropDownOpen,
         })}
       >
-        {SORT_LIST.map(({id, title}) => (
+        {SORT_LIST.map((predefinedSortOption) => (
           <li
-            onClick={(evt) => handleClick(evt, title)}
+            onClick={(evt) => handleClick(evt, predefinedSortOption)}
             className={classNames(`places__option`, {
-              "places__option--active": title === sortOption,
+              "places__option--active": predefinedSortOption.id === sortOption.id,
             })}
-            key={id}
+            key={predefinedSortOption.id}
             tabIndex={0}
           >
-            {title}
+            {predefinedSortOption.title}
           </li>
         ))}
       </ul>
@@ -71,19 +50,8 @@ const PlaceSort = ({sortOption, onSetSortOption}) => {
 };
 
 PlaceSort.propTypes = {
+  sortOption: PropTypes.object.isRequired,
   onSetSortOption: PropTypes.func.isRequired,
-  sortOption: PropTypes.string.isRequired,
 };
 
-const mapStateToProps = ({sortOption}) => ({
-  sortOption,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  onSetSortOption(sortOption) {
-    dispatch(ActionCreator.setSortOption(sortOption));
-  },
-});
-
-export {PlaceSort};
-export default connect(mapStateToProps, mapDispatchToProps)(PlaceSort);
+export default PlaceSort;

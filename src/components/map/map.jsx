@@ -1,6 +1,5 @@
 import React, {useEffect, useRef} from "react";
 import {PropTypes} from "prop-types";
-import {connect} from "react-redux";
 import leaflet from "leaflet";
 
 import "leaflet/dist/leaflet.css";
@@ -84,9 +83,4 @@ Map.propTypes = {
   activeOfferId: PropTypes.number,
 };
 
-const mapStateToProps = ({activeOfferId}) => ({
-  activeOfferId
-});
-
-export {Map};
-export default connect(mapStateToProps, ``)(Map);
+export default Map;
