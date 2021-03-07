@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import PropTypes from "prop-types";
 import {mapTypes} from "src/const";
 import Map from "src/components/map/map";
@@ -14,10 +14,12 @@ const CitiesList = ({
   activeOfferId,
   onSetSortOption,
 }) => {
-  const cityOffers = getSorting(
-      offers.filter((offer) => offer.city.name === currentCity.name),
-      currentCity.name,
-      sortOption
+  const cityOffers = offers.filter(
+      (offer) => offer.city.name === currentCity.name
+  );
+  const filteredOffers = useMemo(
+      () => getSorting(cityOffers, currentCity.name, sortOption),
+      [cityOffers]
   );
 
   return (
@@ -32,14 +34,14 @@ const CitiesList = ({
           />
           <PlacesList
             pageType="main"
-            offers={cityOffers}
+            offers={filteredOffers}
             onHoverOffer={onHoverOffer}
             activeOfferId={activeOfferId}
           />
         </section>
         <div className="cities__right-section">
           <Map
-            offers={cityOffers}
+            offers={filteredOffers}
             type={mapTypes.MAIN}
             location={currentCity.location}
             activeOfferId={activeOfferId}
