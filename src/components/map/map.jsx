@@ -4,7 +4,7 @@ import leaflet from "leaflet";
 
 import "leaflet/dist/leaflet.css";
 
-export const typesParams = {
+const typesParams = {
   MAIN: {
     mixClass: `cities__map`,
     height: 736,
@@ -15,7 +15,7 @@ export const typesParams = {
   },
 };
 
-const Map = ({location, offers, type}) => {
+const Map = ({location, offers, type, activeOfferId}) => {
   const mapRef = useRef();
 
   useEffect(() => {
@@ -36,9 +36,15 @@ const Map = ({location, offers, type}) => {
       )
       .addTo(mapRef.current);
 
+    return () => {
+      mapRef.current.remove();
+    };
+  }, [location]);
+
+  useEffect(() => {
     offers.forEach((point) => {
       const customIcon = leaflet.icon({
-        iconUrl: `./img/pin.svg`,
+        iconUrl: `./img/pin${point.id === activeOfferId ? `-active` : ``}.svg`,
         iconSize: [30, 30],
       });
 
@@ -57,9 +63,9 @@ const Map = ({location, offers, type}) => {
     });
 
     return () => {
-      mapRef.current.remove();
+      mapRef.current.removeLayer(leaflet);
     };
-  }, [location, offers]);
+  }, [offers, activeOfferId]);
 
   return (
     <section className={`${typesParams[type].mixClass || ``} map`}>
@@ -80,6 +86,7 @@ Map.propTypes = {
   }).isRequired,
   offers: PropTypes.arrayOf(PropTypes.object),
   type: PropTypes.oneOf([`MAIN`, `PROPERTY`]).isRequired,
+  activeOfferId: PropTypes.number,
 };
 
 export default Map;

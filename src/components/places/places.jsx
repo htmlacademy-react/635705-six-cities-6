@@ -3,7 +3,15 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import PlaceCard from "./card";
 
-const PlacesList = ({pageType, offers}) => {
+const PlacesList = ({pageType, offers, onHoverOffer, activeOfferId}) => {
+
+  const changeOffer = (evt, id) => {
+    evt.preventDefault();
+    if (id !== activeOfferId) {
+      onHoverOffer(id);
+    }
+  };
+
   const [activeCard, setActiveCard] = useState(null);
 
   return (
@@ -18,8 +26,9 @@ const PlacesList = ({pageType, offers}) => {
           key={offer.id}
           pageType={pageType}
           offer={offer}
-          handleMouseEnter={() => {
+          handleMouseEnter={(evt) => {
             setActiveCard({...activeCard, ...offer});
+            changeOffer(evt, offer.id);
           }}
           handleMouseOut={() => {
             setActiveCard(null);
@@ -33,6 +42,9 @@ const PlacesList = ({pageType, offers}) => {
 PlacesList.propTypes = {
   pageType: PropTypes.string,
   offers: PropTypes.arrayOf(PropTypes.object),
+  onHoverOffer: PropTypes.func.isRequired,
+  activeOfferId: PropTypes.number
 };
 
 export default PlacesList;
+
