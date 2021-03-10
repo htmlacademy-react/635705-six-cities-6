@@ -19,6 +19,17 @@ const reducer = (state, action) => {
         ...state,
         activeOfferId: action.payload,
       };
+    case ActionType.LOAD_OFFERS:
+      return {
+        ...state,
+        offers: action.payload,
+        isDataLoaded: true,
+      };
+    case ActionType.REQUIRED_AUTHORIZATION:
+      return {
+        ...state,
+        authorizationStatus: action.payload,
+      };
     default:
       return state;
   }
