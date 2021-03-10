@@ -56,6 +56,8 @@ MainPage.propTypes = {
   onHoverOffer: PropTypes.func,
   activeOfferId: PropTypes.number,
   onSetSortOption: PropTypes.func,
+  isDataLoaded: PropTypes.bool.isRequired,
+  onLoadData: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
