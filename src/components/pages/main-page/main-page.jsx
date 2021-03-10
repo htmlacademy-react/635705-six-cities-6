@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import {connect} from "react-redux";
@@ -7,8 +7,22 @@ import Header from "src/components/layout/header/header";
 import CitiesTabs from "src/components/cities/tabs";
 import CitiesList from "src/components/cities/list";
 import CitiesEmpty from "src/components/cities/empty";
+import {fetchOffersList} from "src/store/api-actions";
 
-const MainPage = ({city, onCityClick, offers, ...props}) => {
+const MainPage = ({city, onCityClick, offers, isDataLoaded, onLoadData, ...props}) => {
+
+  useEffect(() => {
+    if (!isDataLoaded) {
+      onLoadData();
+    }
+  }, [isDataLoaded]);
+
+  // if (!isDataLoaded) {
+  //   return (
+  //     <LoadingScreen />
+  //   );
+  // }
+
   return (
     <div className="page page--gray page--main">
       <Header />
@@ -49,6 +63,7 @@ const mapStateToProps = (state) => ({
   offers: state.offers,
   sortOption: state.sortOption,
   activeOfferId: state.activeOfferId,
+  isDataLoaded: state.isDataLoaded,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -60,6 +75,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onHoverOffer(id) {
     dispatch(ActionCreator.hoverOffer(id));
+  },
+  onLoadData() {
+    dispatch(fetchOffersList());
   },
 });
 

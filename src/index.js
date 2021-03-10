@@ -11,6 +11,7 @@ import {CITIES, SORT_LIST} from "./const";
 import {createAPI} from "./api";
 import {ActionCreator} from "./store/action";
 import {AuthorizationStatus} from "./const";
+import {checkAuth} from "./store/api-actions";
 
 const initialState = {
   city: CITIES[0],
@@ -34,6 +35,8 @@ const store = createStore(
         applyMiddleware(thunk.withExtraArgument(api))
     )
 );
+
+store.dispatch(checkAuth());
 
 ReactDOM.render(
     <Provider store={store}>
