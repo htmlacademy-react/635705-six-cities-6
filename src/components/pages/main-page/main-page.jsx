@@ -7,6 +7,7 @@ import Header from "src/components/layout/header/header";
 import CitiesTabs from "src/components/cities/tabs";
 import CitiesList from "src/components/cities/list";
 import CitiesEmpty from "src/components/cities/empty";
+import LoadingScreen from "src/components/loading-screen/loading-screen";
 import {fetchOffersList} from "src/store/api-actions";
 
 const MainPage = ({city, onCityClick, offers, isDataLoaded, onLoadData, ...props}) => {
@@ -17,11 +18,11 @@ const MainPage = ({city, onCityClick, offers, isDataLoaded, onLoadData, ...props
     }
   }, [isDataLoaded]);
 
-  // if (!isDataLoaded) {
-  //   return (
-  //     <LoadingScreen />
-  //   );
-  // }
+  if (!isDataLoaded) {
+    return (
+      <LoadingScreen />
+    );
+  }
 
   return (
     <div className="page page--gray page--main">
