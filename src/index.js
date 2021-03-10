@@ -27,7 +27,13 @@ const api = createAPI(() =>
   )
 );
 
-const store = createStore(reducer, initialState, composeWithDevTools());
+const store = createStore(
+    reducer,
+    initialState,
+    composeWithDevTools(
+        applyMiddleware(thunk.withExtraArgument(api))
+    )
+);
 
 ReactDOM.render(
     <Provider store={store}>
