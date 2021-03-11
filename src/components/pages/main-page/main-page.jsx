@@ -10,11 +10,11 @@ import CitiesEmpty from "src/components/cities/empty";
 import LoadingScreen from "src/components/loading-screen/loading-screen";
 import {fetchOffersList} from "src/store/api-actions";
 
-const MainPage = ({city, onCityClick, offers, isDataLoaded, onLoadData, ...props}) => {
+const MainPage = ({city, onCityClick, offers, isDataLoaded, loadData, ...props}) => {
 
   useEffect(() => {
     if (!isDataLoaded) {
-      onLoadData();
+      loadData();
     }
   }, [isDataLoaded]);
 
@@ -57,7 +57,7 @@ MainPage.propTypes = {
   activeOfferId: PropTypes.number,
   onSetSortOption: PropTypes.func,
   isDataLoaded: PropTypes.bool.isRequired,
-  onLoadData: PropTypes.func.isRequired,
+  loadData: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -79,7 +79,7 @@ const mapDispatchToProps = (dispatch) => ({
   onHoverOffer(id) {
     dispatch(ActionCreator.hoverOffer(id));
   },
-  onLoadData() {
+  loadData() {
     dispatch(fetchOffersList());
   },
 });
