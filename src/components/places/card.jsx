@@ -89,7 +89,7 @@ PlaceCard.propTypes = {
       "location": PropTypes.objectOf(PropTypes.number),
       "name": PropTypes.string
     }),
-    "description": PropTypes.arrayOf(PropTypes.string),
+    "description": PropTypes.string,
     "goods": PropTypes.arrayOf(PropTypes.string),
     "host": PropTypes.shape({
       "avatar_url": PropTypes.string,
