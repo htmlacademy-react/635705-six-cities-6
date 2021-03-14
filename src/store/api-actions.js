@@ -1,10 +1,14 @@
 import {ActionCreator} from "./action";
-import {AuthorizationStatus} from "src/const";
+import {AuthorizationStatus} from "src/api";
 
-export const fetchOffersList = () => (dispatch, _getState, api) =>
+export const fetchOffersList = () => (dispatch, _getState, api) => {
+  dispatch(ActionCreator.requestOffers());
+
   api
     .get(`/hotels`)
-    .then(({data}) => dispatch(ActionCreator.loadOffers(data)));
+    .then(({data}) => dispatch(ActionCreator.loadOffersSuccess(data)))
+    .catch((e) => dispatch(ActionCreator.loadOffersFailure(e)));
+};
 
 export const checkAuth = () => (dispatch, _getState, api) =>
   api

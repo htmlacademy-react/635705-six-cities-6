@@ -7,6 +7,11 @@ const HttpCode = {
   UNAUTHORIZED: 401,
 };
 
+export const AuthorizationStatus = {
+  AUTH: `AUTH`,
+  NO_AUTH: `NO_AUTH`,
+};
+
 export const createAPI = (onUnauthorized) => {
   const api = axios.create({
     baseURL: BACKEND_URL,

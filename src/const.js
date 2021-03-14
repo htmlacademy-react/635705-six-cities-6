@@ -92,8 +92,3 @@ export const mapTypes = {
   MAIN: `MAIN`,
   PROPERTY: `PROPERTY`,
 };
-
-export const AuthorizationStatus = {
-  AUTH: `AUTH`,
-  NO_AUTH: `NO_AUTH`,
-};

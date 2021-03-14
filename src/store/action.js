@@ -2,8 +2,24 @@ export const ActionType = {
   SET_CITY: `city/setCity`,
   SET_SORT_OPTION: `sortOption/setSortOption`,
   HOVER_OFFER: `offer/hoverOffer`,
-  LOAD_OFFERS: `data/loadOffers`,
+  OFFERS_REQUEST: `offers/request`,
+  OFFERS_SUCCESS: `offers/success`,
+  OFFERS_FAILURE: `offers/failure`,
   REQUIRED_AUTHORIZATION: `user/requiredAuthorization`,
+};
+
+const OfferActionCreator = {
+  requestOffers: () => ({
+    type: ActionType.OFFERS_REQUEST,
+  }),
+  loadOffersSuccess: (offers) => ({
+    type: ActionType.OFFERS_SUCCESS,
+    payload: offers
+  }),
+  loadOffersFailure: (error) => ({
+    type: ActionType.OFFERS_FAILURE,
+    payload: error
+  }),
 };
 
 export const ActionCreator = {
@@ -19,12 +35,9 @@ export const ActionCreator = {
     type: ActionType.HOVER_OFFER,
     payload: id
   }),
-  loadOffers: (offers) => ({
-    type: ActionType.LOAD_OFFERS,
-    payload: offers
-  }),
   requiredAuthorization: (status) => ({
     type: ActionType.REQUIRED_AUTHORIZATION,
     payload: status
-  })
+  }),
+  ...OfferActionCreator,
 };

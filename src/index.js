@@ -8,18 +8,23 @@ import thunk from "redux-thunk";
 import App from "./components/app/app";
 import {reducer} from "./store/reducer";
 import {CITIES, SORT_LIST} from "./const";
-import {createAPI} from "./api";
 import {ActionCreator} from "./store/action";
-import {AuthorizationStatus} from "./const";
 import {checkAuth} from "./store/api-actions";
+import {createAPI, AuthorizationStatus} from "./api";
 
 const initialState = {
   city: CITIES[0],
-  offers: [],
+
   authorizationStatus: AuthorizationStatus.NO_AUTH,
-  isDataLoaded: false,
+
   sortOption: SORT_LIST[0],
   activeOfferId: null,
+
+  offers: {
+    data: null,
+    loading: false,
+    error: null
+  }
 };
 
 const api = createAPI(() =>

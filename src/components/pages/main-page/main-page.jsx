@@ -10,18 +10,26 @@ import CitiesEmpty from "src/components/cities/empty";
 import LoadingScreen from "src/components/loading-screen/loading-screen";
 import {fetchOffersList} from "src/store/api-actions";
 
-const MainPage = ({city, onCityClick, offers, isDataLoaded, loadData, ...props}) => {
 
+const MainPage = ({city, onCityClick, offers, loadOffersData, ...props}) => {
   useEffect(() => {
-    if (!isDataLoaded) {
-      loadData();
+    if (!offers.error && !offers.loading && offers.data === null) {
+      loadOffersData();
     }
-  }, [isDataLoaded]);
+  }, [offers]);
 
-  if (!isDataLoaded) {
+  if (offers.loading) {
     return (
       <LoadingScreen />
     );
+  }
+
+  if (offers.error) {
+    return <div>error: {offers.error}</div>;
+  }
+
+  if (!offers.data) {
+    return null;
   }
 
   return (
@@ -29,7 +37,7 @@ const MainPage = ({city, onCityClick, offers, isDataLoaded, loadData, ...props})
       <Header />
       <main
         className={classNames(`page__main page__main--index`, {
-          "page__main--index-empty": !offers.length
+          "page__main--index-empty": !offers.data.length
         })}
       >
         <h1 className="visually-hidden">Cities</h1>
@@ -38,26 +46,24 @@ const MainPage = ({city, onCityClick, offers, isDataLoaded, loadData, ...props})
             <CitiesTabs selectedCity={city} onCityClick={onCityClick} />
           </section>
         </div>
-        {offers.length ? (
-          <CitiesList selectedCity={city} offers={offers} {...props} />
-        ) : (
-          <CitiesEmpty />
-        )}
+        {offers.data.length
+          ? <CitiesList selectedCity={city} offers={offers.data} {...props} />
+          : <CitiesEmpty />
+        }
       </main>
     </div>
   );
 };
 
 MainPage.propTypes = {
-  offers: PropTypes.arrayOf(PropTypes.object),
+  offers: PropTypes.object,
   city: PropTypes.object,
   onCityClick: PropTypes.func,
   sortOption: PropTypes.object,
   onHoverOffer: PropTypes.func,
   activeOfferId: PropTypes.number,
   onSetSortOption: PropTypes.func,
-  isDataLoaded: PropTypes.bool.isRequired,
-  loadData: PropTypes.func.isRequired,
+  loadOffersData: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -66,7 +72,6 @@ const mapStateToProps = (state) => ({
   offers: state.offers,
   sortOption: state.sortOption,
   activeOfferId: state.activeOfferId,
-  isDataLoaded: state.isDataLoaded,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -79,7 +84,7 @@ const mapDispatchToProps = (dispatch) => ({
   onHoverOffer(id) {
     dispatch(ActionCreator.hoverOffer(id));
   },
-  loadData() {
+  loadOffersData() {
     dispatch(fetchOffersList());
   },
 });
